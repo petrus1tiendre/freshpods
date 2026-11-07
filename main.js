@@ -66,6 +66,96 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); update(); });
   }
 
+  /* ---------- header: section links once the hero is behind ---------- */
+  const body = document.body;
+  const heroEl = document.getElementById('hero');
+  function pastHero() {
+    if (!heroEl) return;
+    body.classList.toggle('is-past', window.scrollY > heroEl.offsetHeight - window.innerHeight * 0.5);
+  }
+  window.addEventListener('scroll', pastHero, { passive: true });
+  pastHero();
+
+  /* ---------- night mode ---------- */
+  const themeBtn = document.getElementById('theme');
+  if (themeBtn) {
+    const root = document.documentElement;
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const isDark = () => (root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light')) === 'dark';
+    const sync = () => {
+      themeBtn.setAttribute('aria-pressed', String(isDark()));
+      themeBtn.setAttribute('aria-label', isDark() ? 'Activer le mode jour' : 'Activer le mode nuit');
+    };
+    themeBtn.addEventListener('click', () => {
+      const next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('fp-theme', next); } catch (e) { /* private mode */ }
+      sync();
+    });
+    systemDark.addEventListener('change', sync);
+    sync();
+  }
+
+  /* ---------- reveals, word-by-word statement, count-ups ---------- */
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+        en.target.querySelectorAll('[data-count]').forEach(countUp);
+        if (en.target.hasAttribute('data-count')) countUp(en.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+    function countUp(el) {
+      if (el.dataset.done) return;
+      el.dataset.done = '1';
+      const end = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const t0 = performance.now();
+      const dur = 1100;
+      const tick = (now) => {
+        const k = easeOut(clamp((now - t0) / dur, 0, 1));
+        el.textContent = Math.round(end * k) + suffix;
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+
+    // The statement lights up word by word as it crosses the viewport.
+    const band = document.querySelector('.band__text');
+    if (band) {
+      const wrap = (node) => {
+        node.childNodes.forEach((n) => {
+          if (n.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach((part) => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+              const s = document.createElement('span'); s.className = 'w'; s.textContent = part; frag.appendChild(s);
+            });
+            n.replaceWith(frag);
+          } else if (n.nodeType === 1) wrap(n);
+        });
+      };
+      wrap(band);
+      const words = band.querySelectorAll('.w');
+      const lightWords = () => {
+        const r = band.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const p = clamp((vh * 0.85 - r.top) / (vh * 0.55), 0, 1);
+        const n = Math.round(p * words.length);
+        words.forEach((w, i) => w.classList.toggle('is-on', i < n));
+      };
+      window.addEventListener('scroll', lightWords, { passive: true });
+      lightWords();
+    }
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in'));
+  }
+
   /* ---------- before / after slider ---------- */
   const compare = document.getElementById('compare');
   if (compare) {
@@ -123,7 +213,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!validate()) return;
-      const subject = `Demande de nettoyage — ${fields.name.value.trim()}`;
+      const subject = `Demande de remise à neuf — ${fields.name.value.trim()}`;
       const body = [
         `Prénom : ${fields.name.value.trim()}`,
         `Contact : ${fields.contact.value.trim()}`,

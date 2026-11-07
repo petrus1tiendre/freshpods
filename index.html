@@ -1,19 +1,20 @@
 <!doctype html>
-<html lang="fr-CA">
+<html lang="fr-CA" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>FreshPads — Nettoyage de coussinets de casque</title>
-  <meta name="description" content="FreshPads nettoie en profondeur les coussinets de votre casque audio. Tissu en maille et mousse retrouvent leur blanc d'origine, sans les remplacer.">
+  <title>FreshPads — Remise à neuf de coussinets de casque</title>
+  <meta name="description" content="FreshPads remet à neuf les coussinets de votre casque audio : maille, mousse et odeur, comme au premier jour, pour une fraction du prix du remplacement.">
   <meta name="theme-color" content="#e9eaec">
-  <meta property="og:title" content="FreshPads — Vos coussinets, blancs comme au premier jour.">
-  <meta property="og:description" content="Nettoyage en profondeur des coussinets de casque audio. Compatible AirPods Max et casques à coussinets en maille.">
+  <meta property="og:title" content="FreshPads — Vos coussinets, remis à neuf.">
+  <meta property="og:description" content="Remise à neuf des coussinets de casque audio, 29 $ la paire. Compatible AirPods Max et casques à coussinets en maille.">
   <meta property="og:image" content="photos/casque-propre.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231b1d20'/%3E%3Cellipse cx='16' cy='16' rx='9' ry='7.5' fill='none' stroke='%23e9eaec' stroke-width='2.4'/%3E%3Cellipse cx='16' cy='16' rx='3.6' ry='2.8' fill='%2319c7a8'/%3E%3C/svg%3E">
   <link rel="preload" href="fonts/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
   <a class="skip" href="#reserver">Aller à la réservation</a>
@@ -23,13 +24,24 @@
       <svg class="wordmark__mark" viewBox="0 0 24 20" aria-hidden="true"><ellipse cx="12" cy="10" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="12" cy="10" rx="4" ry="3" fill="currentColor"/></svg>
       <span>FreshPads</span>
     </a>
-    <a class="pill pill--small" href="#reserver">Réserver</a>
+    <div class="top__right">
+      <nav class="top__links" aria-label="Sections">
+        <a href="#protocole">Remise à neuf</a>
+        <a href="#preuves">Preuves</a>
+        <a href="#tarif">Tarif</a>
+      </nav>
+      <button class="theme" id="theme" type="button" aria-label="Activer le mode nuit" aria-pressed="false">
+        <svg class="theme__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+        <svg class="theme__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <a class="pill pill--small" href="#reserver">Réserver</a>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero__pin">
-        <h1 class="hero__title" id="hero-title">Vos coussinets,<br>blancs comme au premier&nbsp;jour.</h1>
+        <h1 class="hero__title" id="hero-title">Vos coussinets,<br>remis à&nbsp;neuf.</h1>
 
         <div class="hero__slot" id="hero-slot" aria-hidden="true"></div>
 
@@ -53,8 +65,8 @@
           </figcaption>
         </figure>
 
-        <a class="pill pill--primary hero__cta" href="#reserver">Réserver un nettoyage</a>
-        <p class="hero__note">39 $ la paire · retour en 48 h · compatible AirPods Max et casques à coussinets en maille.</p>
+        <a class="pill pill--primary hero__cta" href="#reserver">Réserver une remise à neuf</a>
+        <p class="hero__note">29 $ la paire · retour en 48 h · compatible AirPods Max et casques à coussinets en maille.</p>
 
         <div class="hero__rail" aria-hidden="true"><i></i></div>
         <p class="hero__hint" aria-hidden="true">Faites défiler pour nettoyer</p>
@@ -62,41 +74,41 @@
     </section>
 
     <section class="band" aria-label="Pourquoi nettoyer plutôt que remplacer">
-      <p class="band__text">Les laver chez soi, c'est risquer la mousse et le tissu. Les remplacer, c'est près de 90 $ pour jeter des coussinets encore bons. <strong>Nous les nettoyons, pour 39 $.</strong></p>
-      <figure class="band__fig">
+      <p class="band__text">Les laver chez soi, c'est risquer la mousse et le tissu. Les remplacer, c'est près de 90 $. <strong>Nous les remettons à neuf, maille, mousse et odeur, pour 29 $.</strong></p>
+      <figure class="band__fig" data-reveal>
         <img src="photos/casque-aluminium.webp" width="1536" height="1024" alt="Casque blanc à coussinets en maille posé sur une surface d'aluminium brossé." loading="lazy">
       </figure>
     </section>
 
     <section class="protocol" id="protocole" aria-labelledby="protocol-title">
-      <h2 class="h2" id="protocol-title">Le protocole</h2>
+      <h2 class="h2" id="protocol-title" data-reveal>La remise à neuf, en trois étapes</h2>
       <ol class="steps">
-        <li class="step">
+        <li class="step" data-reveal style="--d:0">
           <img class="step__img" src="photos/etape-depose.webp" width="1264" height="1264" alt="Coussinet détaché posé à côté de l'écouteur en aluminium." loading="lazy">
           <span class="step__n" aria-hidden="true">1</span>
           <h3 class="step__title">Dépose</h3>
           <p class="step__text">Les coussinets tiennent par aimants. Ils se retirent sans outil et sans laisser de trace sur le casque.</p>
         </li>
-        <li class="step">
+        <li class="step" data-reveal style="--d:1">
           <img class="step__img" src="photos/etape-nettoyage.webp" width="1264" height="1264" alt="Gros plan sur la maille blanche d'un coussinet, avec des gouttes d'eau." loading="lazy">
           <span class="step__n" aria-hidden="true">2</span>
-          <h3 class="step__title">Nettoyage en profondeur</h3>
-          <p class="step__text">La maille est nettoyée fibre par fibre et la mousse traitée sans la détremper, pour garder sa forme et son maintien.</p>
+          <h3 class="step__title">Traitement en profondeur</h3>
+          <p class="step__text">La maille est nettoyée fibre par fibre, la mousse traitée et désodorisée sans la détremper, pour retrouver son blanc et son maintien.</p>
         </li>
-        <li class="step">
+        <li class="step" data-reveal style="--d:2">
           <img class="step__img" src="photos/etape-sechage.webp" width="1264" height="1264" alt="Deux coussinets blancs qui sèchent à plat sur un linge gris." loading="lazy">
           <span class="step__n" aria-hidden="true">3</span>
-          <h3 class="step__title">Séchage et contrôle</h3>
-          <p class="step__text">Séchage à l'air, contrôle sous lumière rasante, puis remise en place. Vous récupérez un casque prêt à porter.</p>
+          <h3 class="step__title">Séchage, remise en forme, contrôle</h3>
+          <p class="step__text">Séchage à l'air, remise en forme de la mousse, contrôle sous lumière rasante, puis remise en place. Vous récupérez un casque comme neuf.</p>
         </li>
       </ol>
     </section>
 
     <section class="proof" id="preuves" aria-labelledby="proof-title">
-      <h2 class="h2" id="proof-title">Le même casque, avant et après.</h2>
-      <p class="lead">Glissez le curseur. À gauche, les coussinets tels qu'ils nous arrivent. À droite, ce que nous rendons.</p>
+      <h2 class="h2" id="proof-title" data-reveal>Le même casque, avant et après.</h2>
+      <p class="lead" data-reveal style="--d:1">Glissez le curseur. À gauche, les coussinets tels qu'ils nous arrivent. À droite, ce que nous rendons.</p>
 
-      <div class="compare" id="compare" style="--x:50%">
+      <div class="compare" id="compare" style="--x:50%" data-reveal>
         <picture>
           <source media="(max-width: 800px)" srcset="photos/pads-sales-2-780.webp">
           <img class="compare__before" src="photos/pads-sales-2.webp" width="1170" height="1560" alt="Coussinets avant nettoyage." loading="lazy">
@@ -115,14 +127,14 @@
       </div>
 
       <div class="pair">
-        <figure class="pair__fig">
+        <figure class="pair__fig" data-reveal style="--d:0">
           <picture>
             <source media="(max-width: 800px)" srcset="photos/pads-sales-1-780.webp">
             <img src="photos/pads-sales-1.webp" width="1170" height="1560" alt="Coussinets gris et tachés, vus de l'intérieur, avant nettoyage." loading="lazy">
           </picture>
           <figcaption><span class="tag">Avant</span> Reçus le 7 novembre 2026</figcaption>
         </figure>
-        <figure class="pair__fig">
+        <figure class="pair__fig" data-reveal style="--d:1">
           <picture>
             <source media="(max-width: 800px)" srcset="photos/casque-propre-780.webp">
             <img src="photos/casque-propre.webp" width="1170" height="1560" alt="Casque avec ses coussinets blancs, remonté après nettoyage." loading="lazy">
@@ -134,21 +146,21 @@
     </section>
 
     <section class="facts" id="tarif" aria-labelledby="facts-title">
-      <h2 class="h2" id="facts-title">Ce qu'il faut savoir</h2>
+      <h2 class="h2" id="facts-title" data-reveal>Ce qu'il faut savoir</h2>
       <dl class="values">
-        <div class="value">
+        <div class="value" data-reveal style="--d:0">
           <dt>Tarif par paire</dt>
-          <dd><span class="value__big">39 $</span><small>taxes en sus · bandeau du casque : +15 $</small></dd>
+          <dd><span class="value__big" data-count="29" data-suffix=" $">29 $</span><small>taxes en sus · bandeau du casque : +15 $</small></dd>
         </div>
-        <div class="value">
+        <div class="value" data-reveal style="--d:1">
           <dt>Délai</dt>
-          <dd><span class="value__big">48 h</span><small>à partir de la réception</small></dd>
+          <dd><span class="value__big" data-count="48" data-suffix=" h">48 h</span><small>à partir de la réception</small></dd>
         </div>
-        <div class="value">
+        <div class="value" data-reveal style="--d:2">
           <dt>Remise du casque</dt>
           <dd><span class="value__big">Dépôt ou envoi</span><small>cueillette Gatineau–Ottawa : +10 $</small></dd>
         </div>
-        <div class="value">
+        <div class="value" data-reveal style="--d:3">
           <dt>Région</dt>
           <dd><span class="value__big">Gatineau · Ottawa</span><small>envoi postal partout au Canada</small></dd>
         </div>
@@ -156,8 +168,8 @@
     </section>
 
     <section class="book" id="reserver" aria-labelledby="book-title">
-      <div class="book__plate">
-        <h2 class="h2" id="book-title">Réserver un nettoyage</h2>
+      <div class="book__plate" data-reveal>
+        <h2 class="h2" id="book-title">Réserver une remise à neuf</h2>
         <p class="lead">Dites-nous quel casque vous avez. Nous revenons vers vous dans la journée avec la marche à suivre.</p>
 
         <form class="form" id="form" novalidate>
