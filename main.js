@@ -99,7 +99,7 @@
   const form = document.getElementById('form');
   const done = document.getElementById('form-done');
   if (form && done) {
-    const to = 'bonjour@freshpads.ca';
+    const to = 'bonjour@freshpads.ca'; // TODO: placeholder, replace with the real address before publishing
     const fields = {
       name: form.querySelector('#f-name'),
       contact: form.querySelector('#f-contact'),

@@ -29,3 +29,11 @@ FORM: pinned scroll porthole (candidate 4 of 7 on the ordered grounded list: alu
 Signature interaction: the hero is pinned for ~250vh; scroll scrubs three things at once: the oval grows to the full viewport, the clean image spreads over the dirty one through a soft radial mask from the thumb outward, and the marker flips AVANT → APRÈS. Reduced motion: static side-by-side.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+
+## Adaptations cited after the finish review (2026-11-07)
+
+- Headline: the two-line composition is kept; 6rem yielded to the copy's length (clamp 2.4–4.6rem, 22ch), so the porthole regains height.
+- Porthole end state: a 0.82·vh portrait panel instead of the full viewport, because the photos are portrait; on landscape viewports a blurred copy of the same before/after pair fills the ground behind it.
+- Marker: a small pill at the top-centre of the porthole (an engraved label at the edge was clipped by the cushion's rounded corners); the after state reads "Après · simulation" until a real after photo exists.
+- Material: the brushed ground is a generated raster tile (assets/brushed.webp), not a CSS gradient; no emboss text-shadows or inset-white bevels.
+- Protocol: number + title + text, no icons.
