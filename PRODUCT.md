@@ -29,13 +29,20 @@ Cleaning instead of replacing: a cushion-specific process that restores the orig
 - `photos/clean.jpg` (when present): synthetic "after" derived from `pads-sales-2.jpg` for the scroll demo. Labeled synthetic; to be replaced by a real after photo in the same framing.
 - Name: FreshPads. Domain `freshpads.ca` verified free on 2026-11-07 (not yet registered).
 
-## Open decisions (do not invent)
+## Working assumptions (set by Claude on 2026-11-07 at Hans's request; Hans to confirm or change)
 
-- Price per cleaning: unknown. Placeholder shown as such.
-- City and handoff method (drop-off, mail-in, pickup): unknown. Placeholder.
-- Turnaround time: unknown.
-- Contact channel (phone, Instagram, form): unknown.
-- Whether other headset brands (Sony, Bose) are accepted: unknown.
+- Price: 39 $ per pair, taxes extra; headband cleaning +15 $.
+- Turnaround: 48 h from reception.
+- Handoff: drop-off or mail-in; pickup in Gatineau–Ottawa +10 $; mail-in anywhere in Canada.
+- Region: Gatineau · Ottawa.
+- Contact: bonjour@freshpads.ca (mailto in the form; the address does not exist yet).
+- Other headset brands: "casques à coussinets en maille" accepted; not stated per brand.
+- Replacement cushions cost "près de 90 $" (official pads price reference; verify).
+
+## Imagery
+
+- Real photos (proof): photos/pads-sales-*.jpg, photos/casque-propre.jpg; synthetic after: photos/clean.* (labeled).
+- AI-generated atmosphere images (Canva, 2026-11-07): photos/casque-aluminium.*, photos/etape-depose.*, photos/etape-nettoyage.*, photos/etape-sechage.*. Illustration only, never before/after proof; to be replaced by real shots of the workshop.
 
 ## Brand commitments
 
