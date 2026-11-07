@@ -1,4 +1,4 @@
 {
-  "prompt": "Synthetic 'after' v3 derived from photos/pads-sales-2.jpg (photo by Hans-Petrus Tiendrebeogo, 2026-11-07) with ImageMagick: matte = (HSL saturation<34%) AND (lightness>26%), Close Disk:4, Open Disk:2, weighted by a soft region (two ellipses over the cushions, blur 22px) so the edge comes from the fabric, blur 1.5px; tone: -modulate 134,14,100 -sigmoidal-contrast 2x55% -brightness-contrast 3x-2, no level clip. Labeled as a simulation on the page; to be replaced by a real after photo.",
-  "createdAt": "2026-11-07T22:30:03.173Z"
+  "prompt": "Synthetic 'after' v4 derived from photos/pads-sales-2.jpg (photo by Hans-Petrus Tiendrebeogo, 2026-11-07) with ImageMagick: matte = (HSL saturation<31%) AND (lightness>27%), Close Disk:4, Open Disk:2, weighted by a soft region (ellipses 312x262 at 640,470 and 318x318 at 650,1015, blur 18px) so the edge comes from the fabric, blur 1.5px; tone: -modulate 134,14,100 -sigmoidal-contrast 2x55% -brightness-contrast 3x-2, no level clip. Labeled as a simulation on the page; to be replaced by a real after photo.",
+  "createdAt": "2026-11-07T22:31:17.355Z"
 }
