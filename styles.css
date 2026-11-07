@@ -201,12 +201,12 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18e
   z-index: 2;
 }
 .porthole picture, .porthole__img { position: absolute; inset: 0; width: 100%; height: 100%; }
-.porthole__img { object-fit: cover; object-position: 50% 46%; }
+.porthole__img { object-fit: cover; object-position: 50% 50%; }
 .porthole__img--after, .hero__bg-img--after {
   /* 100% = distance to the farthest corner, so the clean spreads over the whole scroll, not its first third */
   --r: calc(var(--pC) * 124%);
-  -webkit-mask-image: radial-gradient(circle farthest-corner at 32% 46%, #000 calc(var(--r) - 24%), transparent var(--r));
-  mask-image: radial-gradient(circle farthest-corner at 32% 46%, #000 calc(var(--r) - 24%), transparent var(--r));
+  -webkit-mask-image: radial-gradient(circle farthest-corner at 50% 50%, #000 calc(var(--r) - 24%), transparent var(--r));
+  mask-image: radial-gradient(circle farthest-corner at 50% 50%, #000 calc(var(--r) - 24%), transparent var(--r));
 }
 .porthole__marker {
   /* top-centre: never clipped by the cushion's rounded corners; drops under the header once full-screen */
@@ -354,7 +354,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18e
   user-select: none; -webkit-user-select: none;
 }
 .compare picture, .compare img { position: absolute; inset: 0; width: 100%; height: 100%; }
-.compare img { object-fit: cover; object-position: 50% 46%; }
+.compare img { object-fit: cover; object-position: 50% 50%; }
 .compare__after { clip-path: inset(0 0 0 var(--x)); }
 .compare__tag {
   position: absolute; top: 16px; z-index: 2;
