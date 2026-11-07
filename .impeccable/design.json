@@ -1,0 +1,596 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-07T22:39:26Z",
+  "title": "Design System: FreshPads",
+  "extensions": {
+    "colorMeta": {
+      "metal": {
+        "role": "neutral",
+        "displayName": "Brushed Metal",
+        "canonical": "#e9eaec",
+        "tonalRamp": [
+          "oklch(15% 0.004 250)",
+          "oklch(25% 0.004 250)",
+          "oklch(35% 0.004 250)",
+          "oklch(48% 0.004 250)",
+          "oklch(62% 0.004 250)",
+          "oklch(76% 0.004 250)",
+          "oklch(88% 0.004 250)",
+          "oklch(95% 0.004 250)"
+        ]
+      },
+      "metal-light": {
+        "role": "neutral",
+        "displayName": "Milled Plate",
+        "canonical": "#f4f5f6",
+        "tonalRamp": [
+          "oklch(15% 0.003 250)",
+          "oklch(25% 0.003 250)",
+          "oklch(35% 0.003 250)",
+          "oklch(48% 0.003 250)",
+          "oklch(62% 0.003 250)",
+          "oklch(76% 0.003 250)",
+          "oklch(88% 0.003 250)",
+          "oklch(95% 0.003 250)"
+        ]
+      },
+      "metal-deep": {
+        "role": "neutral",
+        "displayName": "Deep Metal",
+        "canonical": "#dcdee2",
+        "tonalRamp": [
+          "oklch(15% 0.006 250)",
+          "oklch(25% 0.006 250)",
+          "oklch(35% 0.006 250)",
+          "oklch(48% 0.006 250)",
+          "oklch(62% 0.006 250)",
+          "oklch(76% 0.006 250)",
+          "oklch(88% 0.006 250)",
+          "oklch(95% 0.006 250)"
+        ]
+      },
+      "metal-well": {
+        "role": "neutral",
+        "displayName": "Field Well",
+        "canonical": "#e3e5e8",
+        "tonalRamp": [
+          "oklch(15% 0.005 250)",
+          "oklch(25% 0.005 250)",
+          "oklch(35% 0.005 250)",
+          "oklch(48% 0.005 250)",
+          "oklch(62% 0.005 250)",
+          "oklch(76% 0.005 250)",
+          "oklch(88% 0.005 250)",
+          "oklch(95% 0.005 250)"
+        ]
+      },
+      "metal-well-focus": {
+        "role": "neutral",
+        "displayName": "Field Well, Focused",
+        "canonical": "#eef0f2",
+        "tonalRamp": [
+          "oklch(15% 0.003 250)",
+          "oklch(25% 0.003 250)",
+          "oklch(35% 0.003 250)",
+          "oklch(48% 0.003 250)",
+          "oklch(62% 0.003 250)",
+          "oklch(76% 0.003 250)",
+          "oklch(88% 0.003 250)",
+          "oklch(95% 0.003 250)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Engraved Ink",
+        "canonical": "#1b1d20",
+        "tonalRamp": [
+          "oklch(15% 0.008 255)",
+          "oklch(25% 0.008 255)",
+          "oklch(35% 0.008 255)",
+          "oklch(48% 0.008 255)",
+          "oklch(62% 0.008 255)",
+          "oklch(76% 0.008 255)",
+          "oklch(88% 0.008 255)",
+          "oklch(95% 0.008 255)"
+        ]
+      },
+      "ink-hover": {
+        "role": "neutral",
+        "displayName": "Ink, Hover",
+        "canonical": "#2a2d31",
+        "tonalRamp": [
+          "oklch(15% 0.008 255)",
+          "oklch(25% 0.008 255)",
+          "oklch(35% 0.008 255)",
+          "oklch(48% 0.008 255)",
+          "oklch(62% 0.008 255)",
+          "oklch(76% 0.008 255)",
+          "oklch(88% 0.008 255)",
+          "oklch(95% 0.008 255)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#5c6066",
+        "tonalRamp": [
+          "oklch(15% 0.012 255)",
+          "oklch(25% 0.012 255)",
+          "oklch(35% 0.012 255)",
+          "oklch(48% 0.012 255)",
+          "oklch(62% 0.012 255)",
+          "oklch(76% 0.012 255)",
+          "oklch(88% 0.012 255)",
+          "oklch(95% 0.012 255)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Tertiary Ink",
+        "canonical": "#62666d",
+        "tonalRamp": [
+          "oklch(15% 0.014 255)",
+          "oklch(25% 0.014 255)",
+          "oklch(35% 0.014 255)",
+          "oklch(48% 0.014 255)",
+          "oklch(62% 0.014 255)",
+          "oklch(76% 0.014 255)",
+          "oklch(88% 0.014 255)",
+          "oklch(95% 0.014 255)"
+        ]
+      },
+      "ink-placeholder": {
+        "role": "neutral",
+        "displayName": "Placeholder Ink",
+        "canonical": "#7a7f86",
+        "tonalRamp": [
+          "oklch(15% 0.014 255)",
+          "oklch(25% 0.014 255)",
+          "oklch(35% 0.014 255)",
+          "oklch(48% 0.014 255)",
+          "oklch(62% 0.014 255)",
+          "oklch(76% 0.014 255)",
+          "oklch(88% 0.014 255)",
+          "oklch(95% 0.014 255)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(27, 29, 32, 0.12)",
+        "tonalRamp": [
+          "oklch(15% 0.008 255)",
+          "oklch(25% 0.008 255)",
+          "oklch(35% 0.008 255)",
+          "oklch(48% 0.008 255)",
+          "oklch(62% 0.008 255)",
+          "oklch(76% 0.008 255)",
+          "oklch(88% 0.008 255)",
+          "oklch(95% 0.008 255)"
+        ]
+      },
+      "line-light": {
+        "role": "neutral",
+        "displayName": "Light Hairline",
+        "canonical": "rgba(255, 255, 255, 0.75)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(25% 0 0)",
+          "oklch(35% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(62% 0 0)",
+          "oklch(76% 0 0)",
+          "oklch(88% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "mint": {
+        "role": "primary",
+        "displayName": "Ice Mint",
+        "canonical": "#19c7a8",
+        "tonalRamp": [
+          "oklch(15% 0.13 170)",
+          "oklch(25% 0.13 170)",
+          "oklch(35% 0.13 170)",
+          "oklch(48% 0.13 170)",
+          "oklch(62% 0.13 170)",
+          "oklch(76% 0.13 170)",
+          "oklch(88% 0.13 170)",
+          "oklch(95% 0.13 170)"
+        ]
+      },
+      "mint-ink": {
+        "role": "primary",
+        "displayName": "Mint Ink",
+        "canonical": "#0e7f6b",
+        "tonalRamp": [
+          "oklch(15% 0.1 170)",
+          "oklch(25% 0.1 170)",
+          "oklch(35% 0.1 170)",
+          "oklch(48% 0.1 170)",
+          "oklch(62% 0.1 170)",
+          "oklch(76% 0.1 170)",
+          "oklch(88% 0.1 170)",
+          "oklch(95% 0.1 170)"
+        ]
+      },
+      "error-stroke": {
+        "role": "error",
+        "displayName": "Error Stroke",
+        "canonical": "#b4452f",
+        "tonalRamp": [
+          "oklch(15% 0.13 30)",
+          "oklch(25% 0.13 30)",
+          "oklch(35% 0.13 30)",
+          "oklch(48% 0.13 30)",
+          "oklch(62% 0.13 30)",
+          "oklch(76% 0.13 30)",
+          "oklch(88% 0.13 30)",
+          "oklch(95% 0.13 30)"
+        ]
+      },
+      "error-text": {
+        "role": "error",
+        "displayName": "Error Text",
+        "canonical": "#9a3a26",
+        "tonalRamp": [
+          "oklch(15% 0.13 30)",
+          "oklch(25% 0.13 30)",
+          "oklch(35% 0.13 30)",
+          "oklch(48% 0.13 30)",
+          "oklch(62% 0.13 30)",
+          "oklch(76% 0.13 30)",
+          "oklch(88% 0.13 30)",
+          "oklch(95% 0.13 30)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; centred, balanced, max 22ch, two lines."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles; left-aligned, max 18ch."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "The one-paragraph band between hero and protocol; ink-2 with the conclusion in ink at 600."
+      },
+      "value": {
+        "displayName": "Value",
+        "purpose": "Engraved quantities in the values plate (price, delay, handoff, region); tabular numerals."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Step index in the protocol, in ink-3; stands in for an icon."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Step titles, confirmation heading, wordmark."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "One paragraph under a section headline; ink-2, max 58ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Step text (max 44ch) and form copy."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Captions, hints, fine print, legal; 0.82 to 0.95rem in ink-2 or ink-3."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase etched labels: field labels, value dts, compare tags, porthole marker (0.72rem), caption tag (0.12em), scroll hint (0.66rem, 0.16em)."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Pill button label; 0.9rem in the small pill."
+      }
+    },
+    "shadows": [
+      {
+        "name": "pill-rest",
+        "value": "inset 0 1px 0 rgba(255,255,255,0.14), 0 1px 2px rgba(0,0,0,0.18), 0 10px 24px -14px rgba(0,0,0,0.5)",
+        "purpose": "Charcoal pill at rest; the inset line is the single catch-light."
+      },
+      {
+        "name": "pill-hover",
+        "value": "inset 0 1px 0 rgba(255,255,255,0.16), 0 2px 3px rgba(0,0,0,0.18), 0 16px 30px -14px rgba(0,0,0,0.55)",
+        "purpose": "Pill hover, paired with translateY(-1px)."
+      },
+      {
+        "name": "marker",
+        "value": "inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,0.2)",
+        "purpose": "Translucent metal pills and tags sitting on a photograph."
+      },
+      {
+        "name": "knob",
+        "value": "inset 0 1px 0 #fff, 0 2px 4px rgba(0,0,0,0.22), 0 12px 24px -12px rgba(0,0,0,0.6)",
+        "purpose": "Compare slider knob."
+      },
+      {
+        "name": "porthole-rest",
+        "value": "inset 0 0 0 1px rgba(27,29,32,0.14), 0 30px 60px -30px rgba(27,29,32,0.55)",
+        "purpose": "Hero porthole at rest; both terms fade to zero as it fills the viewport."
+      },
+      {
+        "name": "compare-frame",
+        "value": "inset 0 0 0 1px rgba(27,29,32,0.12), 0 30px 60px -36px rgba(27,29,32,0.6)",
+        "purpose": "Before/after slider frame."
+      },
+      {
+        "name": "photo-inset",
+        "value": "inset 0 0 0 1px rgba(27,29,32,0.12)",
+        "purpose": "Every static photograph."
+      },
+      {
+        "name": "booking-plate",
+        "value": "0 40px 80px -50px rgba(27,29,32,0.55)",
+        "purpose": "Booking plate contact shadow, on top of a hairline border."
+      },
+      {
+        "name": "field-well",
+        "value": "inset 0 2px 4px rgba(27,29,32,0.08)",
+        "purpose": "Input recess at rest."
+      },
+      {
+        "name": "field-focus",
+        "value": "inset 0 2px 4px rgba(27,29,32,0.06), 0 0 0 3px rgba(25,199,168,0.25)",
+        "purpose": "Focused input: lighter recess plus a 3px mint ring."
+      },
+      {
+        "name": "field-invalid",
+        "value": "inset 0 2px 4px rgba(27,29,32,0.06), 0 0 0 3px rgba(180,69,47,0.18)",
+        "purpose": "Invalid input ring."
+      },
+      {
+        "name": "dot-halo",
+        "value": "0 0 0 2px rgba(25,199,168,0.2)",
+        "purpose": "Halo around the 7px mint dot."
+      },
+      {
+        "name": "header-glass",
+        "value": "backdrop-filter: blur(14px) saturate(1.2) over rgba(233,234,236,0.78)",
+        "purpose": "Fixed header; not a box-shadow, recorded here because it is the only blur in the system."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Transforms and shadow changes (pill lift, 0.35s)."
+      },
+      {
+        "name": "duration-fill",
+        "value": "0.25s",
+        "purpose": "Pill background change on hover."
+      },
+      {
+        "name": "duration-field",
+        "value": "0.2s",
+        "purpose": "Input border, shadow and background on focus."
+      },
+      {
+        "name": "duration-marker",
+        "value": "0.4s",
+        "purpose": "Opacity crossfade between the Avant and Apres marker pills."
+      },
+      {
+        "name": "scrub-track",
+        "value": "320svh track, 100svh sticky pin",
+        "purpose": "Hero scroll length; progress p = -top / (height - viewport)."
+      },
+      {
+        "name": "scrub-title",
+        "value": "--pT = easeOutCubic(remap(p, 0, 0.2))",
+        "purpose": "Title, CTA and note fade (opacity 1 - pT) and drift (-24px / +18px)."
+      },
+      {
+        "name": "scrub-scale",
+        "value": "--pS = easeInOutCubic(remap(p, 0.02, 0.5))",
+        "purpose": "Porthole grows from measured rest size to min(100vw, 0.82vh) x 100svh; radius 0.42h -> 28px (0 at full width); hairline and shadow fade out."
+      },
+      {
+        "name": "scrub-clean",
+        "value": "--pC = easeInOutCubic(remap(p, 0.3, 0.92))",
+        "purpose": "Radial mask (farthest-corner at 32% 46%) radius pC x 124% with a 24% soft edge; also fills the progress rail; marker flips at pC > 0.55."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "static frame, aspect 1.18, radius 160px, hard 50/50 split",
+        "purpose": "prefers-reduced-motion: hero unpins, rail and hint removed, smooth scroll off."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-landscape-cut",
+        "value": "700px",
+        "purpose": "Below: hero background copy and vertical hint hidden. Above: photo pair and values grid go two-up."
+      },
+      {
+        "name": "steps-row",
+        "value": "820px",
+        "purpose": "Protocol steps go three-up with left hairlines."
+      },
+      {
+        "name": "values-row",
+        "value": "1000px",
+        "purpose": "Values plate goes four-up."
+      },
+      {
+        "name": "portrait-aspect",
+        "value": "max-aspect-ratio: 82/100",
+        "purpose": "Hero background copy hidden on upright viewports."
+      },
+      {
+        "name": "container",
+        "value": "1200px",
+        "purpose": "Content max width; gutter clamp(16px, 4vw, 48px)."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Pill (primary)",
+      "kind": "button",
+      "refersTo": "pill",
+      "description": "The only button: charcoal pill, white 600 label, one catch-light, contact shadow; lifts 1px on hover.",
+      "html": "<a class=\"ds-pill\" href=\"#\">Réserver un nettoyage</a>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 1rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:-0.005em;text-decoration:none;cursor:pointer;border:0;color:#fff;background:var(--ink, #1b1d20);box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 1px 2px rgba(0,0,0,0.18),0 10px 24px -14px rgba(0,0,0,0.5);transition:transform .35s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),background .25s,box-shadow .35s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));}.ds-pill:hover{background:var(--ink-hover, #2a2d31);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.16),0 2px 3px rgba(0,0,0,0.18),0 16px 30px -14px rgba(0,0,0,0.55);}.ds-pill:active{transform:translateY(0);}.ds-pill:focus-visible{outline:2px solid var(--mint, #19c7a8);outline-offset:3px;}"
+    },
+    {
+      "name": "Pill (small)",
+      "kind": "button",
+      "refersTo": "pill-small",
+      "description": "Header-sized pill, 38px, used once for the top-right Réserver.",
+      "html": "<a class=\"ds-pill ds-pill--small\" href=\"#\">Réserver</a>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 1rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:-0.005em;text-decoration:none;cursor:pointer;border:0;color:#fff;background:var(--ink, #1b1d20);box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 1px 2px rgba(0,0,0,0.18),0 10px 24px -14px rgba(0,0,0,0.5);transition:transform .35s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),background .25s,box-shadow .35s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));}.ds-pill:hover{background:var(--ink-hover, #2a2d31);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.16),0 2px 3px rgba(0,0,0,0.18),0 16px 30px -14px rgba(0,0,0,0.55);}.ds-pill:active{transform:translateY(0);}.ds-pill:focus-visible{outline:2px solid var(--mint, #19c7a8);outline-offset:3px;}.ds-pill--small{min-height:38px;padding:0 16px;font-size:.9rem;}"
+    },
+    {
+      "name": "Marker pill",
+      "kind": "chip",
+      "refersTo": "marker",
+      "description": "Translucent metal state label placed on a photograph; the Après state carries the mint dot, Avant never does.",
+      "html": "<span class=\"ds-marker\">Avant</span> <span class=\"ds-marker\"><i class=\"ds-dot\"></i>Après · simulation</span>",
+      "css": ".ds-marker{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;min-height:32px;padding:0 14px;border-radius:999px;background:rgba(233,234,236,0.92);color:var(--ink, #1b1d20);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,0.2);font:600 .72rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.14em;text-transform:uppercase;}.ds-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint, #19c7a8);box-shadow:0 0 0 2px rgba(25,199,168,0.2);}.ds-marker+.ds-marker{margin-left:12px;}"
+    },
+    {
+      "name": "Caption tag",
+      "kind": "chip",
+      "refersTo": "compare-tag",
+      "description": "Unframed inline label that leads a figure caption; same voice as the marker without the pill.",
+      "html": "<figcaption class=\"ds-cap\"><span class=\"ds-tag\"><i class=\"ds-dot\"></i>Après</span> Remonté, prêt à porter</figcaption>",
+      "css": ".ds-cap{display:flex;align-items:center;gap:12px;color:var(--ink-2, #5c6066);font:400 .95rem/1.55 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);}.ds-tag{display:inline-flex;align-items:center;gap:6px;font:600 .7rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2, #5c6066);}.ds-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint, #19c7a8);box-shadow:0 0 0 2px rgba(25,199,168,0.2);}"
+    },
+    {
+      "name": "Values plate",
+      "kind": "card",
+      "refersTo": "values-plate-cell",
+      "description": "Engraved quantities: a dl grid whose 1px gaps are the hairline; each cell is milled plate with label, value numeral and ink-3 qualifier. Unknowns read '—' plus 'à confirmer'.",
+      "html": "<dl class=\"ds-values\"><div class=\"ds-value\"><dt>Tarif par paire</dt><dd><span class=\"ds-value__big\">— $</span><small>à confirmer</small></dd></div><div class=\"ds-value\"><dt>Région</dt><dd><span class=\"ds-value__big\">Canada</span><small>ville à confirmer</small></dd></div></dl>",
+      "css": ".ds-values{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line, rgba(27,29,32,0.12));border:1px solid var(--line, rgba(27,29,32,0.12));border-radius:22px;overflow:hidden;}.ds-value{padding:26px 24px 28px;background:var(--metal-light, #f4f5f6);}.ds-value dt{font:600 .7rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2, #5c6066);}.ds-value dd{margin:18px 0 0;display:flex;flex-direction:column;gap:6px;}.ds-value__big{font:560 clamp(1.7rem,2.6vw,2.3rem)/1 var(--display, \"Familjen Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--ink, #1b1d20);}.ds-value small{color:var(--ink-3, #62666d);font:400 .85rem/1.55 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);}"
+    },
+    {
+      "name": "Text field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Recessed metal well with an etched label above; focus lightens the well, turns the border mint-ink and adds a 3px mint ring.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-f1\">Téléphone ou courriel</label><input id=\"ds-f1\" type=\"text\" placeholder=\"vous@exemple.ca\"></div>",
+      "css": ".ds-field label{display:block;margin-bottom:8px;font:600 .7rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2, #5c6066);}.ds-field input{width:100%;min-height:52px;padding:12px 16px;font:400 1.05rem/1.4 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);color:var(--ink, #1b1d20);background:var(--metal-well, #e3e5e8);border:1px solid rgba(27,29,32,0.16);border-radius:14px;box-shadow:inset 0 2px 4px rgba(27,29,32,0.08);transition:border-color .2s,box-shadow .2s,background .2s;appearance:none;}.ds-field input::placeholder{color:var(--ink-placeholder, #7a7f86);}.ds-field input:focus{outline:0;background:var(--metal-well-focus, #eef0f2);border-color:var(--mint-ink, #0e7f6b);box-shadow:inset 0 2px 4px rgba(27,29,32,0.06),0 0 0 3px rgba(25,199,168,0.25);}"
+    },
+    {
+      "name": "Select",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Same well with native chrome removed and an authored 1.5-stroke chevron.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-s1\">Casque</label><div class=\"ds-select\"><select id=\"ds-s1\"><option>AirPods Max</option><option>Autre casque à coussinets en maille</option><option>Je ne sais pas</option></select><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 9l6 6 6-6\"/></svg></div></div>",
+      "css": ".ds-field label{display:block;margin-bottom:8px;font:600 .7rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2, #5c6066);}.ds-select{position:relative;}.ds-select select{width:100%;min-height:52px;padding:12px 44px 12px 16px;font:400 1.05rem/1.4 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);color:var(--ink, #1b1d20);background:var(--metal-well, #e3e5e8);border:1px solid rgba(27,29,32,0.16);border-radius:14px;box-shadow:inset 0 2px 4px rgba(27,29,32,0.08);appearance:none;-webkit-appearance:none;transition:border-color .2s,box-shadow .2s,background .2s;}.ds-select select:focus{outline:0;background:var(--metal-well-focus, #eef0f2);border-color:var(--mint-ink, #0e7f6b);box-shadow:inset 0 2px 4px rgba(27,29,32,0.06),0 0 0 3px rgba(25,199,168,0.25);}.ds-select svg{position:absolute;right:14px;top:50%;width:20px;height:20px;transform:translateY(-50%);fill:none;stroke:var(--ink-2, #5c6066);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "pill-small",
+      "description": "Fixed 64px translucent metal bar: authored cushion glyph + wordmark left, small pill right, bottom hairline.",
+      "html": "<header class=\"ds-top\"><a class=\"ds-wordmark\" href=\"#\"><svg viewBox=\"0 0 24 20\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"10\" rx=\"10\" ry=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"12\" cy=\"10\" rx=\"4\" ry=\"3\" fill=\"currentColor\"/></svg><span>FreshPads</span></a><a class=\"ds-pill ds-pill--small\" href=\"#\">Réserver</a></header>",
+      "css": ".ds-top{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(233,234,236,0.78);backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid var(--line, rgba(27,29,32,0.12));}.ds-wordmark{display:inline-flex;align-items:center;gap:10px;font:600 1.2rem/1 var(--display, \"Familjen Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:-.02em;text-decoration:none;color:var(--ink, #1b1d20);}.ds-wordmark svg{width:24px;height:20px;}.ds-pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 1rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:-0.005em;text-decoration:none;cursor:pointer;border:0;color:#fff;background:var(--ink, #1b1d20);box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 1px 2px rgba(0,0,0,0.18),0 10px 24px -14px rgba(0,0,0,0.5);transition:transform .35s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),background .25s,box-shadow .35s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));}.ds-pill:hover{background:var(--ink-hover, #2a2d31);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.16),0 2px 3px rgba(0,0,0,0.18),0 16px 30px -14px rgba(0,0,0,0.55);}.ds-pill:active{transform:translateY(0);}.ds-pill:focus-visible{outline:2px solid var(--mint, #19c7a8);outline-offset:3px;}.ds-pill--small{min-height:38px;padding:0 16px;font-size:.9rem;}"
+    },
+    {
+      "name": "Compare slider",
+      "kind": "custom",
+      "refersTo": "compare-knob",
+      "description": "Proof component: two stacked photos in a 3:4 22px frame, after image clipped by --x, 2px mint handle with a 46px metal knob; drag anywhere, range input for keyboard.",
+      "html": "<div class=\"ds-compare\" style=\"--x:50%\"><div class=\"ds-compare__before\"></div><div class=\"ds-compare__after\"></div><span class=\"ds-marker ds-compare__tag ds-compare__tag--before\">Avant</span><span class=\"ds-marker ds-compare__tag ds-compare__tag--after\"><i class=\"ds-dot\"></i>Après</span><div class=\"ds-compare__handle\"><span class=\"ds-compare__knob\"><svg viewBox=\"0 0 24 24\"><path d=\"M9 7l-5 5 5 5M15 7l5 5-5 5\"/></svg></span></div><label class=\"ds-compare__range\"><input type=\"range\" min=\"0\" max=\"100\" value=\"50\" step=\"0.5\" aria-label=\"Comparer avant et après\"></label></div>",
+      "css": ".ds-compare{position:relative;width:min(100%,360px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;background:var(--metal-deep, #dcdee2);box-shadow:inset 0 0 0 1px var(--line, rgba(27,29,32,0.12)),0 30px 60px -36px rgba(27,29,32,0.6);user-select:none;}.ds-compare__before,.ds-compare__after{position:absolute;inset:0;}.ds-compare__before{background:linear-gradient(160deg,#9a9b96,#b9bab3);}.ds-compare__after{background:linear-gradient(160deg,#f1f1ee,#dedfdb);clip-path:inset(0 0 0 var(--x));}.ds-marker{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;min-height:32px;padding:0 14px;border-radius:999px;background:rgba(233,234,236,0.92);color:var(--ink, #1b1d20);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,0.2);font:600 .72rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.14em;text-transform:uppercase;}.ds-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint, #19c7a8);box-shadow:0 0 0 2px rgba(25,199,168,0.2);}.ds-compare__tag{position:absolute;top:16px;z-index:2;min-height:30px;padding:0 12px;font-size:.7rem;}.ds-compare__tag--before{left:16px;}.ds-compare__tag--after{right:16px;}.ds-compare__handle{position:absolute;top:0;bottom:0;left:var(--x);z-index:2;width:2px;margin-left:-1px;background:var(--mint, #19c7a8);box-shadow:0 0 0 1px rgba(255,255,255,0.5);}.ds-compare__knob{position:absolute;top:50%;left:50%;width:46px;height:46px;border-radius:50%;transform:translate(-50%,-50%);background:var(--metal-light, #f4f5f6);color:var(--ink, #1b1d20);box-shadow:inset 0 1px 0 #fff,0 2px 4px rgba(0,0,0,0.22),0 12px 24px -12px rgba(0,0,0,0.6);display:grid;place-items:center;}.ds-compare__knob svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}.ds-compare__range{position:absolute;inset:0;z-index:3;display:block;cursor:ew-resize;}.ds-compare__range input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;}.ds-compare:has(input:focus-visible){outline:2px solid var(--mint, #19c7a8);outline-offset:4px;}"
+    },
+    {
+      "name": "Porthole (static)",
+      "kind": "custom",
+      "refersTo": "marker",
+      "description": "The hero frame as it renders under reduced motion: cushion radius, inset hairline, contact shadow, top-centre marker, hard 50/50 split. Live, main.js scrubs size, radius and a radial mask with scroll.",
+      "html": "<figure class=\"ds-porthole\"><div class=\"ds-porthole__before\"></div><div class=\"ds-porthole__after\"></div><figcaption class=\"ds-porthole__marker\"><span class=\"ds-marker\">Avant</span></figcaption></figure>",
+      "css": ".ds-porthole{position:relative;margin:0;width:min(100%,360px);aspect-ratio:1.18;border-radius:80px;overflow:hidden;background:var(--metal-deep, #dcdee2);box-shadow:inset 0 0 0 1px rgba(27,29,32,0.14),0 30px 60px -30px rgba(27,29,32,0.55);}.ds-porthole__before,.ds-porthole__after{position:absolute;inset:0;}.ds-porthole__before{background:linear-gradient(160deg,#9a9b96,#b9bab3);}.ds-porthole__after{background:linear-gradient(160deg,#f1f1ee,#dedfdb);clip-path:inset(0 0 0 50%);}.ds-porthole__marker{position:absolute;left:50%;top:16px;transform:translateX(-50%);margin:0;}.ds-marker{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;min-height:32px;padding:0 14px;border-radius:999px;background:rgba(233,234,236,0.92);color:var(--ink, #1b1d20);box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,0.2);font:600 .72rem/1 var(--body, \"Hanken Grotesk\", \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.14em;text-transform:uppercase;}.ds-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint, #19c7a8);box-shadow:0 0 0 2px rgba(25,199,168,0.2);}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Anodized Service Manual",
+    "overview": "FreshPads reads like the maintenance sheet that ships inside a precision instrument: a brushed-aluminium ground, charcoal set as if engraved into it, and one thin line of ice-mint where the machine marks progress. The page is built around a single object seen very large (the cushion) and a single gesture (scroll, and it comes clean). Everything else on the page is a plate, a hairline or a label that explains that object. Nothing competes with the photograph; the metal is the quiet that makes it legible.\n\nThe material is real, not simulated with gradients. The ground is a generated brushed raster tile (`assets/brushed.webp`, about 4% contrast, 800×160 repeat) laid over `metal`. Plates are the next lighter alloy (`metal-light`), seated with a hairline border and a long, low ambient shadow. Depth is achieved by tone and by hairlines; there is no text-shadow anywhere in the stylesheet and no bevelled plate. Controls alone carry a one-pixel white catch-light along their top edge, the way a machined button catches the room.\n\nDensity is low and the rhythm is editorial: one message per band, one headline per section, generous section padding driven by viewport height. Type is a tight grotesk pairing: Familjen Grotesk at an unusual 560 weight with negative tracking for display, Hanken Grotesk for everything read at length. Color is nearly absent: the whole text field is achromatic, and mint appears only as a hairline rule, a progress rail, a slider handle, a focus ring and a 7px dot. The photos (a hand, a teal bedsheet, grey-then-white mesh) are the only saturated things on the page, which is the point.",
+    "keyCharacteristics": [
+      "Brushed silver raster ground; lighter plates set on hairlines, not on bevels",
+      "Charcoal ink, two tinted greys for secondary and tertiary text; no pure black, no pure white text surfaces",
+      "Ice-mint confined to hairlines, the rail, the slider handle, focus rings and a dot; never used as text",
+      "Familjen Grotesk 560 display with -0.028 to -0.035em tracking; Hanken Grotesk body at 1.0625rem/1.55",
+      "Charcoal pill as the only button; translucent metal pills as photo markers",
+      "Cushion-shaped porthole (radius 0.42 × height) and 22px plates; 999px pills",
+      "Scroll-scrubbed before/after in the hero; drag-and-keyboard slider as the proof",
+      "Authored SVG icons at 1.5px stroke, round caps; four icons total, no icon set"
+    ],
+    "rules": [
+      {
+        "name": "The Hairline-Only Mint Rule",
+        "body": "Mint is a line, a ring or a dot, never a letterform and never a surface behind letterforms. If a new element needs mint text, the answer is charcoal text next to a mint dot (as the \"Après\" marker does).",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted Ink Rule",
+        "body": "Secondary text is `ink-2`/`ink-3`, which are mixed toward the metal's blue-grey, not neutral greys and not opacity on ink. Text is never set in `rgba(ink, 0.x)`.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Pure Black Rule",
+        "body": "The darkest value on the page is `ink` (#1b1d20). Pure black and pure white appear only as the 1px catch-light and the white text inside charcoal pills.",
+        "section": "colors"
+      },
+      {
+        "name": "The 560 Rule",
+        "body": "Display and headline weight is 560, not 500 and not 600. Titles at 1.25rem and below step up to 600; the statement band and numerals step down to 500. Nothing display-sized is ever bold (700).",
+        "section": "typography"
+      },
+      {
+        "name": "The Tightening Rule",
+        "body": "Tracking tightens with size: -0.015em at title, -0.022em at statement, -0.028em at headline, -0.035em at display, -0.04em on bare numerals. Labels run the other way, 0.12–0.16em open, uppercase, 0.66–0.72rem.",
+        "section": "typography"
+      },
+      {
+        "name": "The Measure Rule",
+        "body": "Every text block has a ch cap: 22ch display, 18ch headline, 26ch statement, 58ch lead, 44ch step text, 60ch fine print. No paragraph runs the full container.",
+        "section": "typography"
+      },
+      {
+        "name": "The Contact Shadow Rule",
+        "body": "Shadows are offset 30–40px down, blurred 60–80px and spread −30 to −50px, in ink at ≤0.6 alpha. They describe a plate resting on metal, not floating above it. No shadow is ever cast upward or sideways.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Catch-Light Rule",
+        "body": "Depth on a control is a single 1px inset white line along the top edge (14–16% on charcoal, full white on metal). No second highlight, no inner bevel, no emboss on text.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** set every display and headline in Familjen Grotesk at 560 with tracking between -0.028em and -0.035em; step titles at 600, statements and numerals at 500.",
+      "**Do** keep the brushed ground as the raster tile over `metal` (800×160 repeat, about 4% contrast); plates are flat `metal-light` on a 1px `line` hairline.",
+      "**Do** confine mint to the 2px rule, rail and handle, the focus ring, the selection highlight and the 7px dot; use `mint-ink` only for the caret, the focused border and the check icon.",
+      "**Do** label photographs with translucent metal pills (92% `metal`, white catch-light, 1px contact shadow) and give every \"Après\" its dot.",
+      "**Do** express quantities (price, delay, region) as engraved values in a hairline-gutter plate with a small `ink-3` qualifier; unknowns read \"—\" plus \"à confirmer\".",
+      "**Do** author icons as inline SVG at 1.5px stroke with round caps, sized 20–24px (44px for the confirmation mark).",
+      "**Do** cap measures (18–26ch for display sizes, 44–60ch for reading sizes) and balance or pretty-wrap headings and leads.",
+      "**Do** keep the contact-shadow recipe (30–40px y, 60–80px blur, −30 to −50px spread, ink ≤0.6) and the single top catch-light on controls; use `cubic-bezier(0.16, 1, 0.3, 1)` for transforms and 0.2–0.4s durations."
+    ],
+    "donts": [
+      "**Don't** set text in mint, `mint-ink` or any tinted colour; text is `ink`, `ink-2` or `ink-3` (plus `error-text` in validation).",
+      "**Don't** add text-shadows, inner bevels, emboss or a second highlight line; depth is a hairline, a tonal step and one contact shadow.",
+      "**Don't** replace the raster ground with a CSS gradient or a flat fill, and don't put the tile on plates.",
+      "**Don't** introduce a second button style (outline, ghost, coloured). One charcoal pill; secondary actions are underlined text.",
+      "**Don't** use icon cards, icon bullets or an icon set in the protocol or anywhere else; steps are numeral + title + text.",
+      "**Don't** use pure black (#000) for text or fills, or opacity on `ink` for secondary text.",
+      "**Don't** render a photograph square or unframed; every image is clipped at 22px or by the porthole and carries the 1px inset hairline.",
+      "**Don't** split the hero into copy-left / product-right or add a badge row; the hero is headline, porthole, pill, one line.",
+      "**Don't** invent values for price, delay, city, handoff or the contact address; they are placeholders until confirmed.",
+      "**Don't** present the synthetic \"after\" (`photos/clean*.webp`) as a photograph; it stays labelled \"simulation\" in the marker and the fine print until a real after in the same framing replaces it."
+    ]
+  }
+}
