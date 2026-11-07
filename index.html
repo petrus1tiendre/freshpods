@@ -81,49 +81,100 @@
     </section>
 
     <section class="protocol" id="protocole" aria-labelledby="protocol-title">
-      <h2 class="h2" id="protocol-title" data-reveal>La remise à neuf, en trois étapes</h2>
-      <ol class="steps">
-        <li class="step" data-reveal style="--d:0">
-          <img class="step__img" src="photos/etape-depose.webp" width="1264" height="1264" alt="Coussinet détaché posé à côté de l'écouteur en aluminium." loading="lazy">
-          <span class="step__n" aria-hidden="true">1</span>
-          <h3 class="step__title">Dépose</h3>
-          <p class="step__text">Les coussinets tiennent par aimants. Ils se retirent sans outil et sans laisser de trace sur le casque.</p>
-        </li>
-        <li class="step" data-reveal style="--d:1">
-          <img class="step__img" src="photos/etape-nettoyage.webp" width="1264" height="1264" alt="Gros plan sur la maille blanche d'un coussinet, avec des gouttes d'eau." loading="lazy">
-          <span class="step__n" aria-hidden="true">2</span>
-          <h3 class="step__title">Traitement en profondeur</h3>
-          <p class="step__text">La maille est nettoyée fibre par fibre, la mousse traitée et désodorisée sans la détremper, pour retrouver son blanc et son maintien.</p>
-        </li>
-        <li class="step" data-reveal style="--d:2">
-          <img class="step__img" src="photos/etape-sechage.webp" width="1264" height="1264" alt="Deux coussinets blancs qui sèchent à plat sur un linge gris." loading="lazy">
-          <span class="step__n" aria-hidden="true">3</span>
-          <h3 class="step__title">Séchage, remise en forme, contrôle</h3>
-          <p class="step__text">Séchage à l'air, remise en forme de la mousse, contrôle sous lumière rasante, puis remise en place. Vous récupérez un casque comme neuf.</p>
-        </li>
-      </ol>
+      <h2 class="sr-only" id="protocol-title">La remise à neuf, en trois étapes</h2>
+      <div class="sps-track" id="sps">
+        <div class="sps-root" role="region" aria-roledescription="carousel" aria-label="La remise à neuf, en trois étapes" tabindex="0">
+          <div class="sps-media">
+          <div class="sps-shot" data-on aria-hidden="false">
+            <div class="sps-img"><img src="photos/etape-depose.webp" width="1264" height="1264" alt="Coussinet détaché posé à côté de l'écouteur en aluminium." loading="eager" decoding="async" draggable="false"></div>
+          </div>
+          <div class="sps-shot" aria-hidden="true">
+            <div class="sps-img"><img src="photos/etape-nettoyage.webp" width="1264" height="1264" alt="Gros plan sur la maille blanche d'un coussinet, avec des gouttes d'eau." loading="lazy" decoding="async" draggable="false"></div>
+          </div>
+          <div class="sps-shot" aria-hidden="true">
+            <div class="sps-img"><img src="photos/etape-sechage.webp" width="1264" height="1264" alt="Deux coussinets blancs qui sèchent à plat sur un linge gris." loading="lazy" decoding="async" draggable="false"></div>
+          </div>
+            <p class="sps-brand"><span class="tag">La remise à neuf</span></p>
+          </div>
+          <ul class="sps-dots" aria-label="Choisir une étape">
+          <li><button type="button" class="sps-dot" aria-label="Dépose" aria-current="true" data-sps-go="0"><img src="photos/etape-depose-780.webp" width="42" height="42" alt="" draggable="false"></button></li>
+          <li><button type="button" class="sps-dot" aria-label="Traitement en profondeur" aria-current="false" data-sps-go="1"><img src="photos/etape-nettoyage-780.webp" width="42" height="42" alt="" draggable="false"></button></li>
+          <li><button type="button" class="sps-dot" aria-label="Séchage, remise en forme, contrôle" aria-current="false" data-sps-go="2"><img src="photos/etape-sechage-780.webp" width="42" height="42" alt="" draggable="false"></button></li>
+          </ul>
+          <div class="sps-panel">
+            <div class="sps-copy" aria-live="polite">
+            <div class="sps-block" data-on aria-hidden="false">
+              <div class="sps-count" data-sps-l><span class="sps-now" aria-hidden="true">01</span><i></i><span class="sps-all" aria-hidden="true">03</span><span class="sr-only">Étape 1 sur 3</span></div>
+              <h3 class="sps-title" data-sps-l>Dépose</h3>
+              <p class="sps-desc" data-sps-l>Les coussinets tiennent par aimants. Ils se retirent sans outil et sans laisser de trace sur le casque.</p>
+              <div data-sps-l><a class="pill pill--primary sps-cta" href="#reserver" tabindex="0">Réserver une remise à neuf</a></div>
+            </div>
+            <div class="sps-block" aria-hidden="true">
+              <div class="sps-count" data-sps-l><span class="sps-now" aria-hidden="true">02</span><i></i><span class="sps-all" aria-hidden="true">03</span><span class="sr-only">Étape 2 sur 3</span></div>
+              <h3 class="sps-title" data-sps-l>Traitement en profondeur</h3>
+              <p class="sps-desc" data-sps-l>La maille est nettoyée fibre par fibre, la mousse traitée et désodorisée sans la détremper, pour retrouver son blanc et son maintien.</p>
+              <div data-sps-l><a class="pill pill--primary sps-cta" href="#reserver" tabindex="-1">Réserver une remise à neuf</a></div>
+            </div>
+            <div class="sps-block" aria-hidden="true">
+              <div class="sps-count" data-sps-l><span class="sps-now" aria-hidden="true">03</span><i></i><span class="sps-all" aria-hidden="true">03</span><span class="sr-only">Étape 3 sur 3</span></div>
+              <h3 class="sps-title" data-sps-l>Séchage, remise en forme, contrôle</h3>
+              <p class="sps-desc" data-sps-l>Séchage à l'air, remise en forme de la mousse, contrôle sous lumière rasante, puis remise en place. Vous récupérez un casque comme neuf.</p>
+              <div data-sps-l><a class="pill pill--primary sps-cta" href="#reserver" tabindex="-1">Réserver une remise à neuf</a></div>
+            </div>
+            </div>
+            <div class="sps-arrows">
+              <button type="button" class="sps-arrow" aria-label="Étape précédente" data-sps-step="-1"><svg viewBox="0 0 12 38" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M6 37V1M1.5 5.5 6 1l4.5 4.5"/></svg></button>
+              <button type="button" class="sps-arrow" aria-label="Étape suivante" data-sps-step="1"><svg viewBox="0 0 12 38" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M6 1v36M1.5 32.5 6 37l4.5-4.5"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="proof" id="preuves" aria-labelledby="proof-title">
       <h2 class="h2" id="proof-title" data-reveal>Le même casque, avant et après.</h2>
-      <p class="lead" data-reveal style="--d:1">Glissez le curseur. À gauche, des coussinets tels qu'ils nous arrivent. À droite, ce que nous rendons.</p>
+      <p class="lead" data-reveal style="--d:1">Les mêmes coussinets, tels qu'ils arrivent et tels qu'ils repartent.</p>
 
-      <div class="compare" id="compare" style="--x:50%" data-reveal>
-        <picture>
-          <source media="(max-width: 800px)" srcset="photos/hero-avant-780.webp">
-          <img class="compare__before" src="photos/hero-avant.webp" width="1088" height="1456" alt="Coussinets avant remise à neuf." loading="lazy">
-        </picture>
-        <picture>
-          <source media="(max-width: 800px)" srcset="photos/hero-apres-780.webp">
-          <img class="compare__after" src="photos/hero-apres.webp" width="1088" height="1456" alt="Coussinets après remise à neuf." loading="lazy">
-        </picture>
-        <span class="compare__tag compare__tag--before" aria-hidden="true">Avant</span>
-        <span class="compare__tag compare__tag--after" aria-hidden="true"><i class="dot"></i>Après</span>
-        <div class="compare__handle" aria-hidden="true"><span class="compare__knob"><svg viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
-        <label class="compare__range">
-          <span class="sr-only">Comparer avant et après</span>
-          <input type="range" min="0" max="100" value="50" step="0.5">
-        </label>
+      <div class="sx" id="showcase" data-state="avant" data-reveal>
+        <div class="sx__glow" aria-hidden="true"></div>
+        <div class="sx__grid">
+          <div class="sx__stage">
+            <div class="sx__ring" aria-hidden="true"></div>
+            <div class="sx__blob" aria-hidden="true"></div>
+            <div class="sx__disc">
+              <img class="sx__img sx__img--avant" src="photos/hero-avant.webp" width="1088" height="1456" alt="Coussinets avant remise à neuf : maille grise et tachée." loading="lazy" draggable="false">
+              <img class="sx__img sx__img--apres" src="photos/hero-apres.webp" width="1088" height="1456" alt="Coussinets après remise à neuf : maille blanche et nette." loading="lazy" draggable="false">
+            </div>
+            <p class="sx__status"><i class="dot" aria-hidden="true"></i><span data-sx-status>À la réception</span></p>
+          </div>
+          <div class="sx__details">
+            <div class="sx__block sx__block--avant">
+              <p class="sx__kicker sx__item" style="--d:0">Avant</p>
+              <h3 class="sx__title sx__item" style="--d:1">Tels qu'ils arrivent.</h3>
+              <p class="sx__text sx__item" style="--d:2">Deux ans sur les oreilles : la maille a viré au gris, les auréoles se sont installées, la mousse s'est tassée.</p>
+              <dl class="sx__specs sx__item" style="--d:3">
+                <div><dt>Maille</dt><dd>grise, tachée</dd></div>
+                <div><dt>Odeur</dt><dd>présente</dd></div>
+                <div><dt>Mousse</dt><dd>tassée</dd></div>
+              </dl>
+            </div>
+            <div class="sx__block sx__block--apres">
+              <p class="sx__kicker sx__item" style="--d:0">Après</p>
+              <h3 class="sx__title sx__item" style="--d:1">Comme neufs.</h3>
+              <p class="sx__text sx__item" style="--d:2">Maille blanchie fibre par fibre, mousse désodorisée et remise en forme, remontés sur votre casque.</p>
+              <dl class="sx__specs sx__item" style="--d:3">
+                <div><dt>Maille</dt><dd>blanche</dd></div>
+                <div><dt>Odeur</dt><dd>neutre</dd></div>
+                <div><dt>Mousse</dt><dd>remise en forme</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="sx__dock" role="group" aria-label="Avant ou après">
+          <button type="button" class="sx__opt" data-sx="avant" aria-pressed="true">Avant</button>
+          <button type="button" class="sx__opt" data-sx="apres" aria-pressed="false">Après</button>
+          <span class="sx__thumb" aria-hidden="true"></span>
+        </div>
       </div>
 
       <div class="pair">
@@ -142,7 +193,7 @@
           <figcaption><span class="tag tag--after"><i class="dot" aria-hidden="true"></i>Après</span> Remonté, prêt à porter</figcaption>
         </figure>
       </div>
-      <p class="fineprint">Les images de l'ouverture et du comparateur sont des illustrations ; les deux photos ci-dessus sont réelles.</p>
+      <p class="fineprint">Les images de l'ouverture et de l'avant/après sont des illustrations ; les deux photos ci-dessus sont réelles.</p>
     </section>
 
     <section class="facts" id="tarif" aria-labelledby="facts-title">
@@ -217,6 +268,8 @@
     <p class="foot__legal">AirPods Max est une marque d'Apple Inc. FreshPads est un service indépendant, sans lien avec Apple.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="main.js" defer></script>
 </body>
 </html>

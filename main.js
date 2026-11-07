@@ -156,6 +156,122 @@
     document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in'));
   }
 
+  /* ---------- split step slider (ported from 21st.dev, GSAP ScrollTrigger) ---------- */
+  const track = document.getElementById('sps');
+  if (track && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    const root = track.querySelector('.sps-root');
+    const shots = [...track.querySelectorAll('.sps-shot')];
+    const blocks = [...track.querySelectorAll('.sps-block')];
+    const dots = [...track.querySelectorAll('.sps-dot')];
+    const n = shots.length;
+    const steps = n - 1;
+    let current = 0;
+    let tl = null;
+    let st = null;
+
+    const mark = (to) => {
+      shots.forEach((el, i) => { el.toggleAttribute('data-on', i === to); el.setAttribute('aria-hidden', String(i !== to)); });
+      blocks.forEach((el, i) => {
+        el.toggleAttribute('data-on', i === to); el.setAttribute('aria-hidden', String(i !== to));
+        el.querySelectorAll('a, button').forEach((f) => f.setAttribute('tabindex', i === to ? '0' : '-1'));
+      });
+      dots.forEach((el, i) => el.setAttribute('aria-current', String(i === to)));
+    };
+
+    // Copy lifts out line by line, the next rises in; the next photo slides over the last, turned and a touch large.
+    const go = (target, dir) => {
+      const from = current;
+      const to = clamp(target, 0, n - 1);
+      if (to === from) return;
+      const d = dir || (to > from ? 1 : -1);
+      if (tl) tl.progress(1).kill();
+      current = to;
+      const oldShot = shots[from], newShot = shots[to], oldBlock = blocks[from], newBlock = blocks[to];
+      const oldImg = oldShot.firstElementChild, newImg = newShot.firstElementChild;
+      const oldLines = oldBlock.querySelectorAll('[data-sps-l]');
+      const newLines = newBlock.querySelectorAll('[data-sps-l]');
+      mark(to);
+      gsap.set([oldShot, newShot, oldBlock, newBlock], { visibility: 'visible' });
+      gsap.set(oldShot, { zIndex: 1 });
+      gsap.set(newShot, { zIndex: 2 });
+      const done = () => {
+        gsap.set([oldShot, newShot, oldBlock, newBlock], { clearProps: 'visibility,zIndex' });
+        gsap.set([oldShot, oldImg, newShot, newImg], { clearProps: 'transform' });
+        gsap.set([oldLines, newLines], { clearProps: 'transform,opacity' });
+      };
+      if (reduceMotion) {
+        tl = gsap.timeline({ onComplete: done });
+        tl.fromTo(newShot, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'none', clearProps: 'opacity' });
+        tl.fromTo(newLines, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'none' }, 0);
+        tl.set(oldLines, { opacity: 0 }, 0);
+        return;
+      }
+      tl = gsap.timeline({ onComplete: done });
+      tl.to(oldLines, { y: -38 * d, opacity: 0, duration: 0.42, ease: 'power2.in', stagger: 0.045 }, 0);
+      tl.fromTo(newLines, { y: 46 * d, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.07 }, 0.3);
+      tl.fromTo(newShot, { yPercent: -100 * d }, { yPercent: 0, duration: 0.95, ease: 'power3.inOut' }, 0.2);
+      tl.fromTo(oldShot, { yPercent: 0 }, { yPercent: 42 * d, duration: 0.95, ease: 'power3.inOut' }, 0.2);
+      tl.fromTo(newImg, { rotation: -11 * d, scale: 1.34 }, { rotation: 0, scale: 1, duration: 1.35, ease: 'power2.out' }, 0.22);
+      tl.to(oldImg, { rotation: 7 * d, scale: 1.12, duration: 0.95, ease: 'power2.in' }, 0.2);
+    };
+
+    if (!reduceMotion && n > 1) {
+      st = ScrollTrigger.create({
+        trigger: track,
+        start: 'top top',
+        end: 'bottom bottom',
+        snap: { snapTo: 1 / steps, duration: { min: 0.3, max: 0.8 }, delay: 0.08, ease: 'power2.inOut' },
+        onUpdate: (self) => {
+          const i = Math.round(clamp(self.progress, 0, 1) * steps);
+          if (i !== current) go(i, self.direction > 0 ? 1 : -1);
+        },
+      });
+    }
+    const jump = (to, dir) => {
+      const i = clamp(to, 0, n - 1);
+      go(i, dir);
+      if (st && st.isActive) window.scrollTo({ top: st.start + (i / steps) * (st.end - st.start), behavior: 'instant' });
+      else if (!st) go(i, dir);
+    };
+    dots.forEach((b) => b.addEventListener('click', () => jump(parseInt(b.dataset.spsGo, 10))));
+    track.querySelectorAll('[data-sps-step]').forEach((b) => b.addEventListener('click', () => {
+      const d = parseInt(b.dataset.spsStep, 10);
+      jump(current + d, d);
+    }));
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') jump(current + 1, 1);
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') jump(current - 1, -1);
+      else return;
+      e.preventDefault();
+    });
+  }
+
+  /* ---------- Avant / Après showcase ---------- */
+  const sx = document.getElementById('showcase');
+  if (sx) {
+    const statusEl = sx.querySelector('[data-sx-status]');
+    const labels = { avant: 'À la réception', apres: 'Remis à neuf' };
+    const setState = (state) => {
+      sx.dataset.state = state;
+      sx.querySelectorAll('.sx__opt').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.sx === state)));
+      sx.querySelectorAll('.sx__block').forEach((b) => b.classList.toggle('is-on', b.classList.contains('sx__block--' + state)));
+      if (statusEl) statusEl.textContent = labels[state];
+    };
+    let touched = false;
+    sx.querySelectorAll('.sx__opt').forEach((b) => b.addEventListener('click', () => { touched = true; setState(b.dataset.sx); }));
+    setState('avant');
+    // First time it comes into view, it flips to "Après" on its own, once, unless the visitor already chose.
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const once = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        once.disconnect();
+        setTimeout(() => { if (!touched) setState('apres'); }, 1600);
+      }, { threshold: 0.5 });
+      once.observe(sx);
+    }
+  }
+
   /* ---------- before / after slider ---------- */
   const compare = document.getElementById('compare');
   if (compare) {
