@@ -613,3 +613,37 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 }
 .trust__item h3 { margin: 0 0 10px; font: 600 clamp(1.15rem, 1.6vw, 1.4rem)/1.15 var(--display); letter-spacing: -0.02em; text-wrap: balance; }
 .trust__item p { margin: 0; color: var(--ink-2); max-width: 48ch; }
+
+/* ---------- Apple-style colour: gradient headlines and soft blooms ---------- */
+.grad {
+  background-image: linear-gradient(92deg, #19c7a8 0%, #5fd8ff 45%, #a68cff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.grad--cool { background-image: linear-gradient(92deg, #7aa7ff 0%, #c08bff 55%, #ff8fb4 100%); }
+.turn__title .grad { background-image: linear-gradient(92deg, #baf7ea 0%, #5fd8ff 40%, #b9a6ff 100%); }
+.bloom {
+  position: absolute; pointer-events: none; z-index: 0; filter: blur(70px); opacity: 0.55;
+  border-radius: 50%;
+}
+.bloom--hero {
+  left: -10%; right: -10%; bottom: -30%; height: 60%;
+  background: radial-gradient(60% 70% at 30% 60%, rgba(25, 199, 168, 0.55), transparent 70%), radial-gradient(50% 60% at 75% 50%, rgba(120, 150, 255, 0.5), transparent 70%);
+  opacity: calc(0.5 * (1 - var(--tFade, 0)));
+}
+.trust, .book { position: relative; overflow: hidden; }
+.trust > *:not(.bloom), .book > *:not(.bloom) { position: relative; z-index: 1; }
+.bloom--trust {
+  top: -20%; right: -15%; width: 70%; height: 90%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(122, 167, 255, 0.45), transparent 70%), radial-gradient(40% 40% at 30% 70%, rgba(192, 139, 255, 0.35), transparent 70%);
+  animation: bloom-drift 18s ease-in-out infinite alternate;
+}
+.bloom--book {
+  left: -10%; bottom: -20%; width: 70%; height: 80%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(25, 199, 168, 0.4), transparent 70%), radial-gradient(40% 40% at 70% 30%, rgba(95, 216, 255, 0.35), transparent 70%);
+  animation: bloom-drift 22s ease-in-out infinite alternate-reverse;
+}
+@keyframes bloom-drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(6%, 4%, 0) scale(1.08); } }
+@media (prefers-reduced-motion: reduce) { .bloom { animation: none; } }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .bloom { opacity: 0.35; } }
+:root[data-theme="light"] .bloom { opacity: 0.35; }

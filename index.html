@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preload" as="image" href="photos/turntable/frame-001.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=21">
   <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -46,8 +46,9 @@
     <section class="turn" id="hero" aria-labelledby="hero-title" data-frames="96" data-src="photos/turntable/frame-{i}.jpg" data-src-m="photos/turntable/m/frame-{i}.jpg">
       <div class="turn__pin">
         <canvas class="turn__canvas" aria-hidden="true"></canvas>
+        <div class="bloom bloom--hero" aria-hidden="true"></div>
         <div class="turn__copy">
-          <h1 class="turn__title" id="hero-title">Vos coussinets,<br>remis à&nbsp;neuf.</h1>
+          <h1 class="turn__title" id="hero-title">Vos coussinets,<br><span class="grad">remis à&nbsp;neuf.</span></h1>
           <p class="turn__lead">Maille, mousse et odeur, comme au premier jour. 29&nbsp;$ la paire, prêts en 48&nbsp;h.</p>
           <a class="pill pill--primary turn__cta" href="#reserver">Réserver une remise à neuf</a>
         </div>
@@ -114,7 +115,8 @@
     </section>
 
     <section class="trust" id="confiance" aria-labelledby="trust-title">
-      <h2 class="h2" id="trust-title" data-reveal>Ce que nous faisons, et ce que nous ne faisons pas.</h2>
+      <div class="bloom bloom--trust" aria-hidden="true"></div>
+      <h2 class="h2" id="trust-title" data-reveal>Ce que nous faisons, <span class="grad grad--cool">et ce que nous ne faisons pas.</span></h2>
       <p class="lead" data-reveal style="--d:1">Vos coussinets valent cher. Voici comment on en prend soin.</p>
       <ul class="trust__grid">
         <li class="trust__item" data-reveal style="--d:0">
@@ -137,7 +139,7 @@
     </section>
 
     <section class="proof" id="preuves" aria-labelledby="proof-title">
-      <h2 class="h2" id="proof-title" data-reveal>Le même casque, avant et après.</h2>
+      <h2 class="h2" id="proof-title" data-reveal>Le même casque, <span class="grad">avant et après.</span></h2>
       <p class="lead" data-reveal style="--d:1">Glissez le curseur : à gauche, les coussinets tels que reçus ; à droite, tels que rendus.</p>
 
 
@@ -185,9 +187,10 @@
     </section>
 
     <section class="book" id="reserver" aria-labelledby="book-title">
+      <div class="bloom bloom--book" aria-hidden="true"></div>
       <canvas class="rain rain--book" data-rain aria-hidden="true"></canvas>
       <div class="book__plate" data-reveal>
-        <h2 class="h2" id="book-title">Réserver une remise à neuf</h2>
+        <h2 class="h2" id="book-title">Réserver une <span class="grad">remise à neuf</span></h2>
         <p class="lead">Dites-nous où vous êtes et quel casque vous avez. Dès réception, nous vous envoyons l’adresse de dépôt la plus proche.</p>
 
         <form class="form" id="form" novalidate>
