@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>FreshPods — Remise à neuf de coussinets de casque</title>
   <meta name="description" content="FreshPods remet à neuf les coussinets de votre casque audio : maille, mousse et odeur, comme au premier jour, pour une fraction du prix du remplacement.">
-  <meta name="theme-color" content="#e9eaec">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#e9eaec">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1d20">
   <meta property="og:title" content="FreshPods — Vos coussinets, remis à neuf.">
   <meta property="og:description" content="Remise à neuf des coussinets de casque audio, 29 $ la paire. Compatible AirPods Max et casques à coussinets en maille.">
   <meta property="og:image" content="photos/casque-propre.jpg">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231b1d20'/%3E%3Cellipse cx='16' cy='16' rx='9' ry='7.5' fill='none' stroke='%23e9eaec' stroke-width='2.4'/%3E%3Cellipse cx='16' cy='16' rx='3.6' ry='2.8' fill='%2319c7a8'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg’ viewBox='0 0 32 32’%3E%3Crect width=’32’ height=’32’ rx=’9’ fill=’%231b1d20’/%3E%3Cellipse cx=’16’ cy=’16’ rx=’9’ ry=’7.5’ fill=’none’ stroke=’%23e9eaec’ stroke-width=’2.4’/%3E%3Cellipse cx=’16’ cy=’16’ rx=’3.6’ ry=’2.8’ fill=’%2319c7a8’/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="image" href="photos/turntable/frame-001.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=19">
   <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
-  <a class="skip" href="#reserver">Aller à la réservation</a>
+  <a class="skip" href="#main">Aller au contenu</a>
 
   <header class="top">
     <a class="wordmark" href="#" aria-label="FreshPods, accueil">
       <svg class="wordmark__mark" viewBox="0 0 24 20" aria-hidden="true"><ellipse cx="12" cy="10" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="12" cy="10" rx="4" ry="3" fill="currentColor"/></svg>
-      <span>FreshPods</span>
+      <span translate="no">FreshPods</span>
     </a>
     <div class="top__right">
       <nav class="top__links" aria-label="Sections">
@@ -30,7 +33,7 @@
         <a href="#preuves">Preuves</a>
         <a href="#tarif">Tarif</a>
       </nav>
-      <button class="theme" id="theme" type="button" aria-label="Activer le mode nuit" aria-pressed="false">
+      <button class="theme" id="theme" type="button" aria-label="Mode nuit" aria-pressed="false">
         <svg class="theme__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
         <svg class="theme__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
       </button>
@@ -38,8 +41,8 @@
     </div>
   </header>
 
-  <main>
-    <section class="turn" id="hero" aria-labelledby="hero-title" data-frames="96" data-src="photos/turntable/frame-{i}.jpg">
+  <main id="main" tabindex="-1">
+    <section class="turn" id="hero" aria-labelledby="hero-title" data-frames="96" data-src="photos/turntable/frame-{i}.jpg" data-src-m="photos/turntable/m/frame-{i}.jpg">
       <div class="turn__pin">
         <canvas class="turn__canvas" aria-hidden="true"></canvas>
         <div class="turn__copy">
@@ -52,9 +55,9 @@
     </section>
 
     <section class="band" aria-label="Pourquoi nettoyer plutôt que remplacer">
-      <p class="band__text">Les laver chez soi, c'est risquer la mousse et le tissu. Les remplacer, c'est près de 90 $. <strong>Nous les remettons à neuf, maille, mousse et odeur, pour 29 $.</strong></p>
+      <p class="band__text">Les laver chez soi, c’est risquer la mousse et le tissu. Les remplacer, c’est près de 90 $. <strong>Nous les remettons à neuf, maille, mousse et odeur, pour 29 $.</strong></p>
       <figure class="band__fig" data-reveal>
-        <img src="photos/casque-aluminium.webp" width="1536" height="1024" alt="Casque blanc à coussinets en maille posé sur une surface d'aluminium brossé." loading="lazy">
+        <img src="photos/casque-aluminium.webp" width="1536" height="1024" alt="Casque blanc à coussinets en maille posé sur une surface d’aluminium brossé." loading="lazy">
       </figure>
     </section>
 
@@ -64,10 +67,10 @@
         <div class="sps-root" role="region" aria-roledescription="carousel" aria-label="La remise à neuf, en trois étapes" tabindex="0">
           <div class="sps-media">
           <div class="sps-shot" data-on aria-hidden="false">
-            <div class="sps-img"><img src="photos/etape-depose.webp" width="1264" height="1264" alt="Coussinet détaché posé à côté de l'écouteur en aluminium." loading="eager" decoding="async" draggable="false"></div>
+            <div class="sps-img"><img src="photos/etape-depose.webp" width="1264" height="1264" alt="Coussinet détaché posé à côté de l’écouteur en aluminium." loading="eager" decoding="async" draggable="false"></div>
           </div>
           <div class="sps-shot" aria-hidden="true">
-            <div class="sps-img"><img src="photos/etape-nettoyage.webp" width="1264" height="1264" alt="Gros plan sur la maille blanche d'un coussinet, avec des gouttes d'eau." loading="lazy" decoding="async" draggable="false"></div>
+            <div class="sps-img"><img src="photos/etape-nettoyage.webp" width="1264" height="1264" alt="Gros plan sur la maille blanche d’un coussinet, avec des gouttes d’eau." loading="lazy" decoding="async" draggable="false"></div>
           </div>
           <div class="sps-shot" aria-hidden="true">
             <div class="sps-img"><img src="photos/etape-sechage.webp" width="1264" height="1264" alt="Deux coussinets blancs qui sèchent à plat sur un linge gris." loading="lazy" decoding="async" draggable="false"></div>
@@ -75,9 +78,9 @@
             <p class="sps-brand"><span class="tag">La remise à neuf</span></p>
           </div>
           <ul class="sps-dots" aria-label="Choisir une étape">
-          <li><button type="button" class="sps-dot" aria-label="Dépose" aria-current="true" data-sps-go="0"><img src="photos/etape-depose-780.webp" width="42" height="42" alt="" draggable="false"></button></li>
-          <li><button type="button" class="sps-dot" aria-label="Traitement en profondeur" aria-current="false" data-sps-go="1"><img src="photos/etape-nettoyage-780.webp" width="42" height="42" alt="" draggable="false"></button></li>
-          <li><button type="button" class="sps-dot" aria-label="Séchage, remise en forme, contrôle" aria-current="false" data-sps-go="2"><img src="photos/etape-sechage-780.webp" width="42" height="42" alt="" draggable="false"></button></li>
+          <li><button type="button" class="sps-dot" aria-label="Dépose" aria-current="true" data-sps-go="0"><img src="photos/etape-depose-120.webp" width="42" height="42" alt="" draggable="false"></button></li>
+          <li><button type="button" class="sps-dot" aria-label="Traitement en profondeur" aria-current="false" data-sps-go="1"><img src="photos/etape-nettoyage-120.webp" width="42" height="42" alt="" draggable="false"></button></li>
+          <li><button type="button" class="sps-dot" aria-label="Séchage, remise en forme, contrôle" aria-current="false" data-sps-go="2"><img src="photos/etape-sechage-120.webp" width="42" height="42" alt="" draggable="false"></button></li>
           </ul>
           <div class="sps-panel">
             <div class="sps-copy" aria-live="polite">
@@ -96,7 +99,7 @@
             <div class="sps-block" aria-hidden="true">
               <div class="sps-count" data-sps-l><span class="sps-now" aria-hidden="true">03</span><i></i><span class="sps-all" aria-hidden="true">03</span><span class="sr-only">Étape 3 sur 3</span></div>
               <h3 class="sps-title" data-sps-l>Séchage, remise en forme, contrôle</h3>
-              <p class="sps-desc" data-sps-l>Séchage à l'air, remise en forme de la mousse, contrôle sous lumière rasante, puis remise en place. Vous récupérez un casque comme neuf.</p>
+              <p class="sps-desc" data-sps-l>Séchage à l’air, remise en forme de la mousse, contrôle sous lumière rasante, puis remise en place. Vous récupérez un casque comme neuf.</p>
               <div data-sps-l><a class="pill pill--primary sps-cta" href="#reserver" tabindex="-1">Réserver une remise à neuf</a></div>
             </div>
             </div>
@@ -118,7 +121,7 @@
         <div class="compare" id="compare" style="--x:50%">
           <picture>
             <source media="(max-width: 800px)" srcset="photos/realisation-avant-780.webp">
-            <img class="compare__before" src="photos/realisation-avant.webp" width="1088" height="1456" alt="Coussinets d'AirPods Max tels que reçus : maille grise et tachée." loading="lazy">
+            <img class="compare__before" src="photos/realisation-avant.webp" width="1088" height="1456" alt="Coussinets d’AirPods Max tels que reçus : maille grise et tachée." loading="lazy">
           </picture>
           <picture>
             <source media="(max-width: 800px)" srcset="photos/realisation-apres-780.webp?v=2">
@@ -136,15 +139,15 @@
     </section>
 
     <section class="facts" id="tarif" aria-labelledby="facts-title">
-      <h2 class="h2" id="facts-title" data-reveal>Ce qu'il faut savoir</h2>
+      <h2 class="h2" id="facts-title" data-reveal>Ce qu’il faut savoir</h2>
       <dl class="values">
         <div class="value" data-reveal style="--d:0">
           <dt>Tarif par paire</dt>
-          <dd><span class="value__big" data-count="29" data-suffix=" $">29 $</span><small>taxes en sus · bandeau du casque : +15 $</small></dd>
+          <dd><span class="value__big" data-count="29" data-suffix=" $">29 $</span><small>taxes en sus · bandeau du casque : +15 $</small></dd>
         </div>
         <div class="value" data-reveal style="--d:1">
           <dt>Délai</dt>
-          <dd><span class="value__big" data-count="48" data-suffix=" h">48 h</span><small>à partir de la réception</small></dd>
+          <dd><span class="value__big" data-count="48" data-suffix=" h">48 h</span><small>à partir de la réception</small></dd>
         </div>
         <div class="value" data-reveal style="--d:2">
           <dt>Remise du casque</dt>
@@ -161,18 +164,18 @@
       <canvas class="rain rain--book" data-rain aria-hidden="true"></canvas>
       <div class="book__plate" data-reveal>
         <h2 class="h2" id="book-title">Réserver une remise à neuf</h2>
-        <p class="lead">Dites-nous où vous êtes et quel casque vous avez. Dès réception, nous vous envoyons l'adresse de dépôt la plus proche.</p>
+        <p class="lead">Dites-nous où vous êtes et quel casque vous avez. Dès réception, nous vous envoyons l’adresse de dépôt la plus proche.</p>
 
         <form class="form" id="form" novalidate>
           <div class="field">
             <label for="f-name">Prénom</label>
-            <input id="f-name" name="name" type="text" autocomplete="given-name" required>
-            <p class="field__error" hidden>Indiquez votre prénom.</p>
+            <input id="f-name" name="name" type="text" autocomplete="given-name" required aria-describedby="f-name-error">
+            <p class="field__error" id="f-name-error" role="alert" hidden>Indiquez votre prénom.</p>
           </div>
           <div class="field">
             <label for="f-contact">Téléphone ou courriel</label>
-            <input id="f-contact" name="contact" type="text" autocomplete="tel email" inputmode="email" required>
-            <p class="field__error" hidden>Indiquez un numéro ou un courriel pour vous répondre.</p>
+            <input id="f-contact" name="contact" type="text" autocomplete="on" inputmode="text" spellcheck="false" required aria-describedby="f-contact-error">
+            <p class="field__error" id="f-contact-error" role="alert" hidden>Indiquez un numéro ou un courriel pour vous répondre.</p>
           </div>
           <div class="field">
             <label for="f-city">Votre ville</label>
@@ -199,16 +202,16 @@
           </div>
           <div class="field">
             <label for="f-msg">Message <span class="opt">facultatif</span></label>
-            <textarea id="f-msg" name="message" rows="3" placeholder="Taches, odeur, depuis combien de temps…"></textarea>
+            <textarea id="f-msg" name="message" rows="3" autocomplete="off" placeholder="Taches, odeur, depuis combien de temps…"></textarea>
           </div>
           <button class="pill pill--primary form__submit" type="submit">Envoyer la demande</button>
-          <p class="form__hint">L'envoi ouvre votre application de courriel avec la demande déjà rédigée. Vous déposez vos coussinets à l'adresse reçue, et vous les récupérez 48 h plus tard.</p>
+          <p class="form__hint">L’envoi ouvre votre application de courriel avec la demande déjà rédigée. Vous déposez vos coussinets à l’adresse reçue, et vous les récupérez 48 h plus tard.</p>
         </form>
 
         <div class="form__done" id="form-done" hidden>
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.5l3 3 6-7"/></svg>
-          <h3>Demande prête.</h3>
-          <p>Votre courriel s'est ouvert avec la demande. Si ce n'est pas le cas, écrivez-nous à <a href="mailto:bonjour@freshpods.ca">bonjour@freshpods.ca</a>.</p>
+          <h3 tabindex="-1">Demande prête.</h3>
+          <p>Votre application de courriel devrait s’ouvrir avec la demande rédigée. Si rien ne s’ouvre, écrivez-nous à <a href="mailto:bonjour@freshpods.ca">bonjour@freshpods.ca</a>.</p>
         </div>
       </div>
     </section>
@@ -217,13 +220,13 @@
   <footer class="foot">
     <p class="foot__brand"><svg class="wordmark__mark" viewBox="0 0 24 20" aria-hidden="true"><ellipse cx="12" cy="10" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="12" cy="10" rx="4" ry="3" fill="currentColor"/></svg> FreshPods</p>
     <p class="foot__line">freshpods.ca · Canada · © 2026</p>
-    <p class="foot__legal">AirPods Max est une marque d'Apple Inc. FreshPods est un service indépendant, sans lien avec Apple.</p>
+    <p class="foot__legal">AirPods Max est une marque d’Apple Inc. FreshPods est un service indépendant, sans lien avec Apple.</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=14" defer></script>
-  <script type="module" src="metal.js?v=1"></script>
+  <script src="main.js?v=16" defer></script>
+  <script type="module" src="metal.js?v=3"></script>
 </body>
 </html>

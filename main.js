@@ -23,6 +23,9 @@
         if (!target) return;
         e.preventDefault();
         lenis.scrollTo(target, { offset: -64, duration: 1.1 });
+        history.pushState(null, '', id);
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
       });
     });
   }
@@ -89,9 +92,10 @@
 
       resize();
       window.addEventListener('resize', resize);
-      const io = new IntersectionObserver((entries) => { entries[0].isIntersecting ? start() : stop(); }, { threshold: 0.01 });
+      let visible = false;
+      const io = new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; visible ? start() : stop(); }, { threshold: 0.01 });
       io.observe(canvas.parentElement);
-      document.addEventListener('visibilitychange', () => { document.hidden ? stop() : (io.takeRecords(), start()); });
+      document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else if (visible) start(); });
     });
   }
 
@@ -99,11 +103,11 @@
   const turn = document.getElementById('hero');
   if (turn && parseInt(turn.dataset.frames, 10) > 0) {
     const count = parseInt(turn.dataset.frames, 10);
-    const src = turn.dataset.src;
+    const src = (window.innerWidth <= 820 && turn.dataset.srcM) ? turn.dataset.srcM : turn.dataset.src;
     const canvas = turn.querySelector('.turn__canvas');
     const ctx = canvas.getContext('2d');
     const frames = new Array(count);
-    let loaded = 0, current = -1, w = 0, h = 0, dpr = 1;
+    let loaded = 0, current = -1, w = 0, h = 0, dpr = 1, vh = window.innerHeight, total = 1;
     const pad = (n) => String(n).padStart(3, '0');
     const draw = (i) => {
       const img = frames[i];
@@ -117,8 +121,9 @@
     };
     const resize = () => {
       const r = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 820 ? 1.5 : 2);
       w = r.width; h = r.height;
+      vh = window.innerHeight; total = Math.max(1, turn.offsetHeight - vh);
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (current >= 0) draw(current);
@@ -133,13 +138,13 @@
     };
     // First frame now, the rest in order once the section is near.
     load(0);
-    const loadAll = () => { for (let i = 1; i < count; i++) load(i); };
+    const loadAll = () => { if (reduceMotion) return; for (let i = 1; i < count; i++) load(i); };
     const near = new IntersectionObserver((e) => { if (e[0].isIntersecting) { loadAll(); near.disconnect(); } }, { rootMargin: '150% 0px' });
     near.observe(turn);
     const progress = () => {
-      const rect = turn.getBoundingClientRect();
-      const total = turn.offsetHeight - window.innerHeight;
-      return reduceMotion ? 0 : clamp(-rect.top / total, 0, 1);
+      if (reduceMotion) return 0;
+      const top = turn.getBoundingClientRect().top;
+      return clamp(-top / total, 0, 1);
     };
     let tick = false;
     const update = () => {
@@ -153,11 +158,11 @@
         draw(j);
       }
       turn.style.setProperty('--tFade', easeOut(remap(p, 0.45, 0.9)).toFixed(3));
-      document.body.classList.toggle('is-scrolled', p > 0.6);
+      turn.classList.toggle('is-faded', p >= 0.86);
     };
     const onScroll = () => { if (!tick) { tick = true; requestAnimationFrame(update); } };
     resize();
-    window.addEventListener('resize', () => { resize(); update(); });
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { resize(); update(); }, 120); });
     window.addEventListener('scroll', onScroll, { passive: true });
     update();
   }
@@ -180,7 +185,7 @@
     const isDark = () => (root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light')) === 'dark';
     const sync = () => {
       themeBtn.setAttribute('aria-pressed', String(isDark()));
-      themeBtn.setAttribute('aria-label', isDark() ? 'Activer le mode jour' : 'Activer le mode nuit');
+      document.querySelectorAll('meta[name="theme-color"]').forEach((mt) => mt.setAttribute('content', isDark() ? '#1b1d20' : '#e9eaec'));
     };
     themeBtn.addEventListener('click', () => {
       const next = isDark() ? 'light' : 'dark';
@@ -338,36 +343,13 @@
       jump(current + d, d);
     }));
     root.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') jump(current + 1, 1);
-      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') jump(current - 1, -1);
-      else return;
+      let to = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') to = current + 1;
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') to = current - 1;
+      if (to === null || to < 0 || to > n - 1) return;
       e.preventDefault();
+      jump(to, to > current ? 1 : -1);
     });
-  }
-
-  /* ---------- Avant / Après showcase ---------- */
-  const sx = document.getElementById('showcase');
-  if (sx) {
-    const statusEl = sx.querySelector('[data-sx-status]');
-    const labels = { avant: 'À la réception', apres: 'Remis à neuf' };
-    const setState = (state) => {
-      sx.dataset.state = state;
-      sx.querySelectorAll('.sx__opt').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.sx === state)));
-      sx.querySelectorAll('.sx__block').forEach((b) => b.classList.toggle('is-on', b.classList.contains('sx__block--' + state)));
-      if (statusEl) statusEl.textContent = labels[state];
-    };
-    let touched = false;
-    sx.querySelectorAll('.sx__opt').forEach((b) => b.addEventListener('click', () => { touched = true; setState(b.dataset.sx); }));
-    setState('avant');
-    // First time it comes into view, it flips to "Après" on its own, once, unless the visitor already chose.
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      const once = new IntersectionObserver((entries) => {
-        if (!entries[0].isIntersecting) return;
-        once.disconnect();
-        setTimeout(() => { if (!touched) setState('apres'); }, 1600);
-      }, { threshold: 0.5 });
-      once.observe(sx);
-    }
   }
 
   /* ---------- before / after slider ---------- */
@@ -417,7 +399,8 @@
         const input = fields[key];
         const field = input.closest('.field');
         const error = field.querySelector('.field__error');
-        const valid = input.value.trim().length > 1;
+        const v = input.value.trim();
+        const valid = key === 'contact' ? (/@/.test(v) ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : (v.replace(/\D/g, '').length >= 10)) : v.length > 1;
         field.classList.toggle('is-invalid', !valid);
         error.hidden = valid;
         input.setAttribute('aria-invalid', String(!valid));
@@ -442,9 +425,10 @@
       form.querySelector('.form__submit').classList.add('is-sending');
       window.location.href = href;
       setTimeout(() => {
+        form.querySelector('.form__submit').classList.remove('is-sending');
         form.hidden = true;
         done.hidden = false;
-        done.querySelector('h3').focus?.();
+        done.querySelector('h3').focus();
       }, 600);
     });
   }
