@@ -111,18 +111,31 @@
     });
   }
 
-  /* ---------- hero: layered parallax (Osmo's component, ported from React to plain JS) ---------- */
+  /* ---------- hero: layered parallax (Osmo's component). Progress is computed from the scroll position
+     on every frame, with fresh measurements, so a stale ScrollTrigger cache can never leave a layer stranded. ---------- */
   const parallax = document.querySelector('.parallax');
-  if (parallax && window.gsap && window.ScrollTrigger && !reduceMotion) {
-    gsap.registerPlugin(ScrollTrigger);
-    const triggerElement = parallax.querySelector('[data-parallax-layers]');
-    if (triggerElement) {
-      // Layer 2 is the headline, layer 3 the headset in front of it: the headline sinks faster, so the headset climbs over the text.
-      const tl = gsap.timeline({ scrollTrigger: { trigger: triggerElement, start: '0% 0%', end: '100% 0%', scrub: 0 } });
-      [{ layer: '1', yPercent: 70 }, { layer: '2', yPercent: 62 }, { layer: '3', yPercent: 14 }].forEach((o, idx) => {
-        tl.to(triggerElement.querySelectorAll('[data-parallax-layer="' + o.layer + '"]'), { yPercent: o.yPercent, ease: 'none' }, idx === 0 ? undefined : '<');
-      });
-    }
+  if (parallax && !reduceMotion) {
+    const layersEl = parallax.querySelector('[data-parallax-layers]');
+    const speeds = { 1: 70, 2: 62, 3: 14 };
+    const layers = [...layersEl.querySelectorAll('[data-parallax-layer]')].map((el) => ({ el, pct: speeds[el.dataset.parallaxLayer] || 0, h: 0 }));
+    let range = 1, last = -1;
+    const measure = () => {
+      range = Math.max(1, layersEl.offsetHeight);
+      layers.forEach((l) => { l.h = l.el.offsetHeight; });
+      last = -1;
+    };
+    const render = () => {
+      const p = clamp((window.scrollY || 0) / range, 0, 1);
+      if (p === last) return;
+      last = p;
+      layers.forEach((l) => { l.el.style.transform = 'translate3d(0,' + (l.h * l.pct / 100 * p).toFixed(2) + 'px,0)'; });
+    };
+    measure(); render();
+    window.addEventListener('scroll', render, { passive: true });
+    if (window.__lenis) window.__lenis.on('scroll', render);
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { measure(); render(); }, 100); });
+    window.addEventListener('load', () => { measure(); render(); });
+    parallax.querySelectorAll('img').forEach((im) => im.addEventListener('load', () => { measure(); render(); }));
   }
 
   /* ---------- header: section links once the hero is behind ---------- */
