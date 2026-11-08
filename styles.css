@@ -760,3 +760,10 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 .hero__title, .hero__cta, .hero__note { position: relative; z-index: 3; }
 .hero__rail, .hero__hint { z-index: 4; }
 @media (prefers-reduced-motion: reduce) { .rain { display: none; } }
+
+/* ---------- réalisation : curseur continu avant/après ---------- */
+.realisation { margin-top: clamp(56px, 9vh, 110px); }
+.realisation__tag { margin: 0 0 14px; }
+.realisation__title { margin: 0; font: 600 clamp(1.6rem, 3vw, 2.4rem)/1.05 var(--display); letter-spacing: -0.025em; max-width: 22ch; text-wrap: balance; }
+.realisation__lead { margin: 12px 0 0; max-width: 56ch; color: var(--ink-2); }
+.realisation .compare { margin-top: clamp(22px, 4vh, 36px); margin-left: 0; }
