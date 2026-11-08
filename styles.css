@@ -740,7 +740,7 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
     color-mix(in srgb, var(--hero-ground) 80%, transparent) 78%,
     var(--hero-ground) 100%);
 }
-.parallax__content { position: relative; display: flex; justify-content: center; align-items: center; min-height: 72svh; padding: 100px var(--gutter); }
+.parallax__content { position: relative; display: flex; justify-content: center; align-items: center; min-height: 72svh; padding: calc(20svh + 48px) var(--gutter) 100px; }
 .parallax__copy { text-align: center; max-width: 40rem; display: flex; flex-direction: column; align-items: center; gap: 28px; }
 .parallax__lead { margin: 0; color: #d4d7dc; font-size: clamp(1.15rem, 1.7vw, 1.45rem); line-height: 1.4; text-wrap: pretty; }
 .parallax__cta { background: #f2f3f5; color: #1b1d20; }
@@ -750,8 +750,9 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
   .parallax__title { font-size: 21vw; line-height: 0.95; }
   .parallax__layer-title { padding-top: 10svh; }
   .parallax__layer-img--casque { top: 33svh; height: 52svh; max-width: 96vw; }
-  .parallax__visuals { height: 112%; }
-  .parallax__content { min-height: 0; padding: 36px var(--gutter) 72px; }
+  .parallax__visuals { height: 106%; }
+  /* the visuals overflow the header by 6svh; the copy starts below that overflow */
+  .parallax__content { min-height: 0; padding: calc(6svh + 40px) var(--gutter) 72px; }
   .parallax__copy { gap: 22px; }
   .parallax__cta { width: 100%; }
 }
