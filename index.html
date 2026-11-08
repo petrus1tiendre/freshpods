@@ -13,7 +13,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231b1d20'/%3E%3Cellipse cx='16' cy='16' rx='9' ry='7.5' fill='none' stroke='%23e9eaec' stroke-width='2.4'/%3E%3Cellipse cx='16' cy='16' rx='3.6' ry='2.8' fill='%2319c7a8'/%3E%3C/svg%3E">
   <link rel="preload" href="fonts/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -41,7 +41,6 @@
   <main>
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero__pin">
-        <canvas class="rain rain--hero" data-rain aria-hidden="true"></canvas>
         <h1 class="hero__title" id="hero-title">Vos coussinets,<br>remis à&nbsp;neuf.</h1>
 
         <div class="hero__slot" id="hero-slot" aria-hidden="true"></div>
@@ -138,7 +137,6 @@
 
       <div class="sx" id="showcase" data-state="avant" data-reveal>
         <div class="sx__glow" aria-hidden="true"></div>
-        <canvas class="rain rain--sx" data-rain="light" aria-hidden="true"></canvas>
         <div class="sx__grid">
           <div class="sx__stage">
             <div class="sx__ring" aria-hidden="true"></div>
@@ -220,6 +218,7 @@
     </section>
 
     <section class="book" id="reserver" aria-labelledby="book-title">
+      <canvas class="rain rain--book" data-rain aria-hidden="true"></canvas>
       <div class="book__plate" data-reveal>
         <h2 class="h2" id="book-title">Réserver une remise à neuf</h2>
         <p class="lead">Dites-nous où vous êtes et quel casque vous avez. Dès réception, nous vous envoyons l'adresse de dépôt la plus proche.</p>
@@ -284,6 +283,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=8" defer></script>
+  <script src="main.js?v=9" defer></script>
 </body>
 </html>
