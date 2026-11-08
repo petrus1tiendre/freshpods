@@ -727,8 +727,8 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
 .parallax__visuals { position: absolute; top: 0; left: 0; width: 100%; max-width: none; height: 120%; object-fit: cover; }
 .parallax__layers { position: absolute; top: 0; left: 0; width: 100%; max-width: none; height: 100%; overflow: hidden; }
 .parallax__layer-img { position: absolute; top: -17.5%; left: 0; width: 100%; max-width: none; height: 117.5%; object-fit: cover; pointer-events: none; }
-.parallax__layer-img--casque { top: 34svh; left: 50%; width: auto; height: 56svh; max-width: 92vw; translate: -50% 0; object-fit: contain; filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.6)); }
-.parallax__layer-title { position: absolute; top: 0; left: 0; display: flex; justify-content: center; align-items: flex-start; padding-top: 15svh; width: 100%; height: 100svh; }
+.parallax__layer-img--casque { top: 25svh; left: 50%; width: auto; height: 74svh; max-width: 94vw; translate: -50% 0; object-fit: contain; filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.6)); }
+.parallax__layer-title { position: absolute; top: 0; left: 0; display: flex; justify-content: center; align-items: flex-start; padding-top: 9svh; width: 100%; height: 100svh; }
 .parallax__title {
   position: relative; margin: 0 0.075em 0.1em 0; text-align: center; pointer-events: auto;
   font: 800 11vw/1 var(--display); letter-spacing: -0.045em; color: #fff;
@@ -755,8 +755,8 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
 @media (max-width: 700px) {
   .parallax__header { padding: 80px 20px; }
   .parallax__title { font-size: 15vw; }
-  .parallax__layer-img--casque { top: 36svh; height: 46svh; }
-  .parallax__layer-title { padding-top: 18svh; }
+  .parallax__layer-img--casque { top: 30svh; height: 52svh; }
+  .parallax__layer-title { padding-top: 14svh; }
     .parallax__content { min-height: 60svh; padding: 72px var(--gutter); }
   .parallax__cta { width: 100%; }
 }
