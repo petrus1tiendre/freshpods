@@ -13,7 +13,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231b1d20'/%3E%3Cellipse cx='16' cy='16' rx='9' ry='7.5' fill='none' stroke='%23e9eaec' stroke-width='2.4'/%3E%3Cellipse cx='16' cy='16' rx='3.6' ry='2.8' fill='%2319c7a8'/%3E%3C/svg%3E">
   <link rel="preload" href="fonts/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
   <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -39,37 +39,15 @@
   </header>
 
   <main>
-    <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="hero__pin">
-        <h1 class="hero__title" id="hero-title">Vos coussinets,<br>remis à&nbsp;neuf.</h1>
-
-        <div class="hero__slot" id="hero-slot" aria-hidden="true"></div>
-
-        <div class="hero__bg" aria-hidden="true">
-          <img class="hero__bg-img" src="photos/hero-avant-780.webp" width="780" height="1044" alt="" loading="lazy">
-          <img class="hero__bg-img hero__bg-img--after" src="photos/hero-apres-780.webp" width="780" height="1044" alt="" loading="lazy">
+    <section class="turn" id="hero" aria-labelledby="hero-title" data-frames="96" data-src="photos/turntable/frame-{i}.jpg">
+      <div class="turn__pin">
+        <canvas class="turn__canvas" aria-hidden="true"></canvas>
+        <div class="turn__copy">
+          <h1 class="turn__title" id="hero-title">Vos coussinets,<br>remis à&nbsp;neuf.</h1>
+          <p class="turn__lead">Maille, mousse et odeur, comme au premier jour. 29 $ la paire, prêts en 48 h.</p>
+          <a class="pill pill--primary turn__cta" href="#reserver">Réserver une remise à neuf</a>
         </div>
-
-        <figure class="porthole" id="porthole">
-          <picture>
-            <source media="(max-width: 800px)" srcset="photos/hero-avant-780.webp">
-            <img class="porthole__img porthole__img--before" src="photos/hero-avant.webp" width="1088" height="1456" alt="Deux coussinets de casque gris et tachés, posés sur de l'aluminium, avant remise à neuf." fetchpriority="high">
-          </picture>
-          <picture>
-            <source media="(max-width: 800px)" srcset="photos/hero-apres-780.webp">
-            <img class="porthole__img porthole__img--after" src="photos/hero-apres.webp" width="1088" height="1456" alt="Les mêmes coussinets, blancs et nets, après remise à neuf." loading="eager">
-          </picture>
-          <figcaption class="porthole__marker">
-            <span class="porthole__state porthole__state--before">Avant</span>
-            <span class="porthole__state porthole__state--after"><i class="dot" aria-hidden="true"></i>Après</span>
-          </figcaption>
-        </figure>
-
-        <a class="pill pill--primary hero__cta" href="#reserver">Réserver une remise à neuf</a>
-        <p class="hero__note">29 $ la paire · retour en 48 h · compatible AirPods Max et casques à coussinets en maille.</p>
-
-        <div class="hero__rail" aria-hidden="true"><i></i></div>
-        <p class="hero__hint" aria-hidden="true">Faites défiler pour nettoyer</p>
+        <p class="turn__hint" aria-hidden="true">Faites défiler</p>
       </div>
     </section>
 
@@ -78,17 +56,6 @@
       <figure class="band__fig" data-reveal>
         <img src="photos/casque-aluminium.webp" width="1536" height="1024" alt="Casque blanc à coussinets en maille posé sur une surface d'aluminium brossé." loading="lazy">
       </figure>
-    </section>
-
-    <section class="turn" id="tour" aria-labelledby="turn-title" data-frames="96" data-src="photos/turntable/frame-{i}.jpg">
-      <div class="turn__pin">
-        <canvas class="turn__canvas" aria-hidden="true"></canvas>
-        <div class="turn__copy">
-          <h2 class="h2 turn__title" id="turn-title">Tournez-les. Rien à cacher.</h2>
-          <p class="turn__lead">Chaque fibre de la maille est nettoyée, chaque coussinet contrôlé sous tous les angles avant de repartir.</p>
-        </div>
-        <p class="turn__hint" aria-hidden="true">Faites défiler pour tourner</p>
-      </div>
     </section>
 
     <section class="protocol" id="protocole" aria-labelledby="protocol-title">
@@ -256,6 +223,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=12" defer></script>
+  <script src="main.js?v=14" defer></script>
 </body>
 </html>

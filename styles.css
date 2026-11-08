@@ -774,20 +774,23 @@ html.js .step__img[data-reveal].is-in { transform: none; }
   position: sticky; top: 0; height: 100svh; overflow: hidden;
   background: #0d0f11; color: #f2f3f5;
 }
+.turn__title { margin: 0; font: 600 clamp(2.4rem, 5.2vw, 4.8rem)/0.98 var(--display); letter-spacing: -0.035em; color: #fff; text-wrap: balance; }
+.turn__cta { margin-top: 28px; background: #f2f3f5; color: #1b1d20; }
+.turn__cta:hover { background: #fff; }
 .turn__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .turn__pin::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(13, 15, 17, 0) 42%, rgba(13, 15, 17, 0.82) 100%), linear-gradient(90deg, rgba(13, 15, 17, 0.55) 0%, rgba(13, 15, 17, 0) 55%); }
 .turn__copy {
   position: absolute; left: var(--gutter); bottom: clamp(32px, 8vh, 96px); z-index: 2;
-  max-width: 34rem;
+  max-width: 38rem;
   opacity: calc(1 - var(--tFade, 0)); transform: translateY(calc(var(--tFade, 0) * 16px));
 }
 .turn__title { color: #fff; }
-.turn__lead { margin-top: 16px; color: #b7bbc1; font-size: 1.1rem; max-width: 40ch; text-wrap: pretty; }
+.turn__lead { margin-top: 18px; color: #d4d7dc; font-size: clamp(1.05rem, 1.4vw, 1.25rem); max-width: 36ch; text-wrap: pretty; }
 .turn__hint {
   position: absolute; right: clamp(10px, 2vw, 22px); bottom: 22px; z-index: 2;
   writing-mode: vertical-rl;
   font: 600 0.66rem/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: #9ea3aa;
   opacity: calc(1 - var(--tFade, 0));
 }
-@media (max-width: 700px) { .turn__hint { display: none; } .turn__copy { right: var(--gutter); } }
+@media (max-width: 700px) { .turn__hint { display: none; } .turn__copy { right: var(--gutter); bottom: 36px; } .turn__cta { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .turn { height: auto; } .turn__pin { position: relative; height: 100svh; } }

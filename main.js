@@ -27,65 +27,6 @@
     });
   }
 
-  /* ---------- hero: porthole grows, cushions get clean ---------- */
-  const hero = document.getElementById('hero');
-  const slot = document.getElementById('hero-slot');
-  const porthole = document.getElementById('porthole');
-
-  if (hero && slot && porthole && !reduceMotion) {
-    const pin = hero.querySelector('.hero__pin');
-
-    // Measure where the porthole sits at rest (the slot keeps the place in the flow).
-    function measure() {
-      const pinRect = pin.getBoundingClientRect();
-      const slotRect = slot.getBoundingClientRect();
-      // Cushion-shaped box that follows the slot: wide on desktop, upright on phones.
-      const aspect = clamp(slotRect.width / slotRect.height, 0.84, 1.18);
-      const h = Math.min(slotRect.height, slotRect.width / aspect);
-      const w = h * aspect;
-      const t = slotRect.top - pinRect.top + (slotRect.height - h) / 2;
-      porthole.style.setProperty('--w0', w + 'px');
-      porthole.style.setProperty('--h0', h + 'px');
-      porthole.style.setProperty('--t0', t + 'px');
-      // End state: full height; full width only where the viewport is as tall as the photo,
-      // otherwise a tall panel (the photos are portrait, a landscape full-bleed would crop the cushions).
-      const vw = window.innerWidth, vh = window.innerHeight;
-      const w1 = Math.min(vw, vh * 0.82);
-      porthole.style.setProperty('--w1', w1 + 'px');
-      porthole.style.setProperty('--h1', vh + 'px');
-      porthole.style.setProperty('--r1', (w1 < vw ? 28 : 0) + 'px');
-    }
-
-    // ?p=0.6 freezes the hero at that progress (used for screenshots and review).
-    const forced = parseFloat(new URLSearchParams(location.search).get('p'));
-    let ticking = false;
-    function update() {
-      ticking = false;
-      const rect = hero.getBoundingClientRect();
-      const total = hero.offsetHeight - window.innerHeight;
-      const p = Number.isFinite(forced) ? clamp(forced, 0, 1) : clamp(-rect.top / total, 0, 1);
-
-      const pT = easeOut(remap(p, 0, 0.18));       // title + CTA fade
-      const pS = easeInOut(remap(p, 0.02, 0.38));  // porthole grows to full screen
-      const pC = easeInOut(remap(p, 0.22, 0.85));  // clean spreads
-
-      hero.style.setProperty('--pT', pT.toFixed(4));
-      hero.style.setProperty('--pS', pS.toFixed(4));
-      hero.style.setProperty('--pC', pC.toFixed(4));
-      hero.classList.toggle('is-after', pC > 0.55);
-      hero.classList.toggle('is-scrolled', pT > 0.6);
-    }
-    function onScroll() {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }
-
-    measure();
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => { measure(); update(); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); update(); });
-  }
-
   /* ---------- falling light rain: thin streaks and sparks on a canvas ---------- */
   if (!reduceMotion) {
     document.querySelectorAll('canvas[data-rain]').forEach((canvas) => {
@@ -155,7 +96,7 @@
   }
 
   /* ---------- turntable: frames drawn on a canvas, driven by the scroll (Apple's technique) ---------- */
-  const turn = document.getElementById('tour');
+  const turn = document.getElementById('hero');
   if (turn && parseInt(turn.dataset.frames, 10) > 0) {
     const count = parseInt(turn.dataset.frames, 10);
     const src = turn.dataset.src;
@@ -211,7 +152,8 @@
         while (j > 0 && !(frames[j] && frames[j].complete && frames[j].naturalWidth)) j--;
         draw(j);
       }
-      turn.style.setProperty('--tFade', easeOut(remap(p, 0.55, 0.95)).toFixed(3));
+      turn.style.setProperty('--tFade', easeOut(remap(p, 0.45, 0.9)).toFixed(3));
+      document.body.classList.toggle('is-scrolled', p > 0.6);
     };
     const onScroll = () => { if (!tick) { tick = true; requestAnimationFrame(update); } };
     resize();
