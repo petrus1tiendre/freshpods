@@ -13,7 +13,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231b1d20'/%3E%3Cellipse cx='16' cy='16' rx='9' ry='7.5' fill='none' stroke='%23e9eaec' stroke-width='2.4'/%3E%3Cellipse cx='16' cy='16' rx='3.6' ry='2.8' fill='%2319c7a8'/%3E%3C/svg%3E">
   <link rel="preload" href="fonts/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
   <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -133,54 +133,10 @@
 
     <section class="proof" id="preuves" aria-labelledby="proof-title">
       <h2 class="h2" id="proof-title" data-reveal>Le même casque, avant et après.</h2>
-      <p class="lead" data-reveal style="--d:1">Les mêmes coussinets, tels qu'ils arrivent et tels qu'ils repartent.</p>
+      <p class="lead" data-reveal style="--d:1">Glissez le curseur : à gauche, les coussinets tels que reçus ; à droite, tels que rendus.</p>
 
-      <div class="sx" id="showcase" data-state="avant" data-reveal>
-        <div class="sx__glow" aria-hidden="true"></div>
-        <div class="sx__grid">
-          <div class="sx__stage">
-            <div class="sx__ring" aria-hidden="true"></div>
-            <div class="sx__blob" aria-hidden="true"></div>
-            <div class="sx__disc">
-              <img class="sx__img sx__img--avant" src="photos/hero-avant.webp" width="1088" height="1456" alt="Coussinets avant remise à neuf : maille grise et tachée." loading="lazy" draggable="false">
-              <img class="sx__img sx__img--apres" src="photos/hero-apres.webp" width="1088" height="1456" alt="Coussinets après remise à neuf : maille blanche et nette." loading="lazy" draggable="false">
-            </div>
-            <p class="sx__status"><i class="dot" aria-hidden="true"></i><span data-sx-status>À la réception</span></p>
-          </div>
-          <div class="sx__details">
-            <div class="sx__block sx__block--avant">
-              <p class="sx__kicker sx__item" style="--d:0">Avant</p>
-              <h3 class="sx__title sx__item" style="--d:1">Tels qu'ils arrivent.</h3>
-              <p class="sx__text sx__item" style="--d:2">Deux ans sur les oreilles : la maille a viré au gris, les auréoles se sont installées, la mousse s'est tassée.</p>
-              <dl class="sx__specs sx__item" style="--d:3">
-                <div><dt>Maille</dt><dd>grise, tachée</dd></div>
-                <div><dt>Odeur</dt><dd>présente</dd></div>
-                <div><dt>Mousse</dt><dd>tassée</dd></div>
-              </dl>
-            </div>
-            <div class="sx__block sx__block--apres">
-              <p class="sx__kicker sx__item" style="--d:0">Après</p>
-              <h3 class="sx__title sx__item" style="--d:1">Comme neufs.</h3>
-              <p class="sx__text sx__item" style="--d:2">Maille blanchie fibre par fibre, mousse désodorisée et remise en forme, remontés sur votre casque.</p>
-              <dl class="sx__specs sx__item" style="--d:3">
-                <div><dt>Maille</dt><dd>blanche</dd></div>
-                <div><dt>Odeur</dt><dd>neutre</dd></div>
-                <div><dt>Mousse</dt><dd>remise en forme</dd></div>
-              </dl>
-            </div>
-          </div>
-        </div>
-        <div class="sx__dock" role="group" aria-label="Avant ou après">
-          <button type="button" class="sx__opt" data-sx="avant" aria-pressed="true">Avant</button>
-          <button type="button" class="sx__opt" data-sx="apres" aria-pressed="false">Après</button>
-          <span class="sx__thumb" aria-hidden="true"></span>
-        </div>
-      </div>
 
       <div class="realisation" data-reveal>
-        <p class="tag realisation__tag"><i class="dot" aria-hidden="true"></i>Réalisation</p>
-        <h3 class="realisation__title">Une paire confiée en novembre 2026.</h3>
-        <p class="realisation__lead">Glissez le curseur de gauche à droite : à gauche, les coussinets tels que reçus ; à droite, tels que rendus.</p>
         <div class="compare" id="compare" style="--x:50%">
           <picture>
             <source media="(max-width: 800px)" srcset="photos/realisation-avant-780.webp">
@@ -289,6 +245,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=10" defer></script>
+  <script src="main.js?v=11" defer></script>
 </body>
 </html>
