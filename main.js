@@ -37,7 +37,10 @@
     });
   }
 
-  requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('is-ready')));
+  // Hero entrance: two frames in, with a timer fallback for background tabs where frames are throttled.
+  const ready = () => document.documentElement.classList.add('is-ready');
+  requestAnimationFrame(() => requestAnimationFrame(ready));
+  setTimeout(ready, 400);
 
   /* ---------- falling light rain: thin streaks and sparks on a canvas ---------- */
   if (!reduceMotion) {

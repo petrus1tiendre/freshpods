@@ -722,7 +722,7 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
 
 
 /* ---------- hero: layered parallax, ported from Osmo's component (osmo.supply) ---------- */
-.parallax { width: 100%; position: relative; overflow: hidden; background: #000; color: #fff; }
+.parallax { --hero-ground: #000; width: 100%; position: relative; overflow: hidden; background: var(--hero-ground); color: #fff; }
 .parallax__header { z-index: 2; display: flex; justify-content: center; align-items: center; min-height: 100svh; padding: 100px 50px; position: relative; }
 .parallax__visuals { position: absolute; top: 0; left: 0; width: 100%; max-width: none; height: 120%; object-fit: cover; }
 .parallax__layers { position: absolute; top: 0; left: 0; width: 100%; max-width: none; height: 100%; overflow: hidden; }
@@ -735,10 +735,17 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
   background-image: linear-gradient(180deg, #ffffff 0%, #dfe2e6 60%, #9aa0a8 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
 }
-.parallax__black-line-overflow { z-index: 20; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: #000; }
+.parallax__black-line-overflow { z-index: 20; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--hero-ground); }
 .parallax__fade {
   z-index: 30; position: absolute; bottom: 0; left: 0; width: 100%; max-width: none; height: 20%; pointer-events: none;
-  background: linear-gradient(#0000, #00000001 1.8%, #00000002 4.8%, #00000005 9%, #0000000b 13.9%, #00000013 19.8%, #00000020 27%, #00000031 35%, #00000047 43.5%, #00000061 53%, #0000008a 66%, #000000bc 81%, #000);
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--hero-ground) 0%, transparent) 0%,
+    color-mix(in srgb, var(--hero-ground) 4%, transparent) 14%,
+    color-mix(in srgb, var(--hero-ground) 13%, transparent) 27%,
+    color-mix(in srgb, var(--hero-ground) 28%, transparent) 43%,
+    color-mix(in srgb, var(--hero-ground) 54%, transparent) 60%,
+    color-mix(in srgb, var(--hero-ground) 80%, transparent) 78%,
+    var(--hero-ground) 100%);
 }
 .parallax__content { position: relative; display: flex; justify-content: center; align-items: center; min-height: 72svh; padding: 100px var(--gutter); }
 .parallax__copy { text-align: center; max-width: 40rem; display: flex; flex-direction: column; align-items: center; gap: 28px; }
@@ -753,3 +760,13 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
     .parallax__content { min-height: 60svh; padding: 72px var(--gutter); }
   .parallax__cta { width: 100%; }
 }
+
+/* day mode: the hero image stays dark, but it fades into the light page instead of into black */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .parallax { --hero-ground: var(--metal); color: var(--ink); }
+  :root:not([data-theme="dark"]) .parallax__lead { color: var(--ink-2); }
+  :root:not([data-theme="dark"]) .parallax__cta { background: var(--pill-bg); color: var(--pill-ink); }
+}
+:root[data-theme="light"] .parallax { --hero-ground: var(--metal); color: var(--ink); }
+:root[data-theme="light"] .parallax__lead { color: var(--ink-2); }
+:root[data-theme="light"] .parallax__cta { background: var(--pill-bg); color: var(--pill-ink); }
