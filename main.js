@@ -399,6 +399,7 @@
     const fields = {
       name: form.querySelector('#f-name'),
       contact: form.querySelector('#f-contact'),
+      city: form.querySelector('#f-city'),
       model: form.querySelector('#f-model'),
       message: form.querySelector('#f-msg'),
     };
@@ -423,6 +424,7 @@
       const body = [
         `Prénom : ${fields.name.value.trim()}`,
         `Contact : ${fields.contact.value.trim()}`,
+        `Ville : ${fields.city.value}`,
         `Casque : ${fields.model.value}`,
         fields.message.value.trim() ? `Message : ${fields.message.value.trim()}` : null,
         '',

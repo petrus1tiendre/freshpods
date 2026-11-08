@@ -185,17 +185,16 @@
             <source media="(max-width: 800px)" srcset="photos/pads-sales-1-780.webp">
             <img src="photos/pads-sales-1.webp" width="1170" height="1560" alt="Coussinets gris et tachés, vus de l'intérieur, avant nettoyage." loading="lazy">
           </picture>
-          <figcaption><span class="tag">Avant</span> Reçus le 7 novembre 2026</figcaption>
+          <figcaption><span class="tag">Avant</span></figcaption>
         </figure>
         <figure class="pair__fig" data-reveal style="--d:1">
           <picture>
             <source media="(max-width: 800px)" srcset="photos/casque-propre-780.webp">
             <img src="photos/casque-propre.webp" width="1170" height="1560" alt="Casque avec ses coussinets blancs, remonté après nettoyage." loading="lazy">
           </picture>
-          <figcaption><span class="tag tag--after"><i class="dot" aria-hidden="true"></i>Après</span> Remonté, prêt à porter</figcaption>
+          <figcaption><span class="tag tag--after"><i class="dot" aria-hidden="true"></i>Après</span></figcaption>
         </figure>
       </div>
-      <p class="fineprint">Les images de l'ouverture et de l'avant/après sont des illustrations ; les deux photos ci-dessus sont réelles.</p>
     </section>
 
     <section class="facts" id="tarif" aria-labelledby="facts-title">
@@ -211,11 +210,11 @@
         </div>
         <div class="value" data-reveal style="--d:2">
           <dt>Remise du casque</dt>
-          <dd><span class="value__big">Dépôt ou envoi</span><small>cueillette Gatineau–Ottawa : +10 $</small></dd>
+          <dd><span class="value__big">Dépôt en main propre</span><small>adresse envoyée par courriel selon votre ville</small></dd>
         </div>
         <div class="value" data-reveal style="--d:3">
           <dt>Région</dt>
-          <dd><span class="value__big">Gatineau · Ottawa</span><small>envoi postal partout au Canada</small></dd>
+          <dd><span class="value__big">Montréal · Ottawa-Gatineau · Québec-Lévis</span><small>et leurs environs</small></dd>
         </div>
       </dl>
     </section>
@@ -223,7 +222,7 @@
     <section class="book" id="reserver" aria-labelledby="book-title">
       <div class="book__plate" data-reveal>
         <h2 class="h2" id="book-title">Réserver une remise à neuf</h2>
-        <p class="lead">Dites-nous quel casque vous avez. Nous revenons vers vous dans la journée avec la marche à suivre.</p>
+        <p class="lead">Dites-nous où vous êtes et quel casque vous avez. Dès réception, nous vous envoyons l'adresse de dépôt la plus proche.</p>
 
         <form class="form" id="form" novalidate>
           <div class="field">
@@ -235,6 +234,18 @@
             <label for="f-contact">Téléphone ou courriel</label>
             <input id="f-contact" name="contact" type="text" autocomplete="tel email" inputmode="email" required>
             <p class="field__error" hidden>Indiquez un numéro ou un courriel pour vous répondre.</p>
+          </div>
+          <div class="field">
+            <label for="f-city">Votre ville</label>
+            <div class="select">
+              <select id="f-city" name="city" required>
+                <option value="Montréal et environs">Montréal et environs</option>
+                <option value="Ottawa–Gatineau et environs">Ottawa–Gatineau et environs</option>
+                <option value="Québec–Lévis et environs">Québec–Lévis et environs</option>
+                <option value="Ailleurs">Ailleurs</option>
+              </select>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
           </div>
           <div class="field">
             <label for="f-model">Casque</label>
@@ -252,7 +263,7 @@
             <textarea id="f-msg" name="message" rows="3" placeholder="Taches, odeur, depuis combien de temps…"></textarea>
           </div>
           <button class="pill pill--primary form__submit" type="submit">Envoyer la demande</button>
-          <p class="form__hint">L'envoi ouvre votre application de courriel avec la demande déjà rédigée.</p>
+          <p class="form__hint">L'envoi ouvre votre application de courriel avec la demande déjà rédigée. Vous déposez vos coussinets à l'adresse reçue, et vous les récupérez 48 h plus tard.</p>
         </form>
 
         <div class="form__done" id="form-done" hidden>

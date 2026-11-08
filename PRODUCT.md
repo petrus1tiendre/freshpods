@@ -31,10 +31,10 @@ Cleaning instead of replacing: a cushion-specific process that restores the orig
 
 ## Working assumptions (set by Claude on 2026-11-07 at Hans's request; Hans to confirm or change)
 
-- Price: 39 $ per pair, taxes extra; headband cleaning +15 $.
+- Price (confirmed 2026-11-08): 29 $ per pair, taxes extra; headband cleaning +15 $.
 - Turnaround: 48 h from reception.
-- Handoff: drop-off or mail-in; pickup in Gatineau–Ottawa +10 $; mail-in anywhere in Canada.
-- Region: Gatineau · Ottawa.
+- Handoff (confirmed by Hans 2026-11-08): drop-off only, no pickup, no mail-in. The customer picks their zone in the form; Hans replies by email with the nearest drop-off address.
+- Zones (confirmed 2026-11-08): Montréal et environs, Ottawa–Gatineau et environs, Québec–Lévis et environs.
 - Contact: bonjour@freshpods.ca (mailto in the form; the address does not exist yet).
 - Other headset brands: "casques à coussinets en maille" accepted; not stated per brand.
 - Replacement cushions cost "près de 90 $" (official pads price reference; verify).
