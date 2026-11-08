@@ -767,3 +767,26 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 .realisation__title { margin: 0; font: 600 clamp(1.6rem, 3vw, 2.4rem)/1.05 var(--display); letter-spacing: -0.025em; max-width: 22ch; text-wrap: balance; }
 .realisation__lead { margin: 12px 0 0; max-width: 56ch; color: var(--ink-2); }
 .realisation .compare { margin-top: clamp(22px, 4vh, 36px); margin-left: 0; }
+
+/* ---------- turntable: the video is scrubbed by the scroll, frame by frame ---------- */
+.turn { position: relative; height: 240svh; }
+.turn__pin {
+  position: sticky; top: 0; height: 100svh; overflow: hidden;
+  background: #0d0f11; color: #f2f3f5;
+}
+.turn__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.turn__copy {
+  position: absolute; left: var(--gutter); bottom: clamp(32px, 8vh, 96px); z-index: 2;
+  max-width: 34rem;
+  opacity: calc(1 - var(--tFade, 0)); transform: translateY(calc(var(--tFade, 0) * 16px));
+}
+.turn__title { color: #fff; }
+.turn__lead { margin-top: 16px; color: #b7bbc1; font-size: 1.1rem; max-width: 40ch; text-wrap: pretty; }
+.turn__hint {
+  position: absolute; right: clamp(10px, 2vw, 22px); bottom: 22px; z-index: 2;
+  writing-mode: vertical-rl;
+  font: 600 0.66rem/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: #9ea3aa;
+  opacity: calc(1 - var(--tFade, 0));
+}
+@media (max-width: 700px) { .turn__hint { display: none; } .turn__copy { right: var(--gutter); } }
+@media (prefers-reduced-motion: reduce) { .turn { height: auto; } .turn__pin { position: relative; height: 100svh; } }

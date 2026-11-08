@@ -154,6 +154,72 @@
     });
   }
 
+  /* ---------- turntable: frames drawn on a canvas, driven by the scroll (Apple's technique) ---------- */
+  const turn = document.getElementById('tour');
+  if (turn && parseInt(turn.dataset.frames, 10) > 0) {
+    const count = parseInt(turn.dataset.frames, 10);
+    const src = turn.dataset.src;
+    const canvas = turn.querySelector('.turn__canvas');
+    const ctx = canvas.getContext('2d');
+    const frames = new Array(count);
+    let loaded = 0, current = -1, w = 0, h = 0, dpr = 1;
+    const pad = (n) => String(n).padStart(3, '0');
+    const draw = (i) => {
+      const img = frames[i];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      current = i;
+      // cover
+      const s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+      const dw = img.naturalWidth * s, dh = img.naturalHeight * s;
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    };
+    const resize = () => {
+      const r = canvas.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = r.width; h = r.height;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (current >= 0) draw(current);
+    };
+    const load = (i) => {
+      if (frames[i]) return;
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = src.replace('{i}', pad(i + 1));
+      img.onload = () => { loaded++; if (i === 0 && current < 0) draw(0); };
+      frames[i] = img;
+    };
+    // First frame now, the rest in order once the section is near.
+    load(0);
+    const loadAll = () => { for (let i = 1; i < count; i++) load(i); };
+    const near = new IntersectionObserver((e) => { if (e[0].isIntersecting) { loadAll(); near.disconnect(); } }, { rootMargin: '150% 0px' });
+    near.observe(turn);
+    const progress = () => {
+      const rect = turn.getBoundingClientRect();
+      const total = turn.offsetHeight - window.innerHeight;
+      return reduceMotion ? 0 : clamp(-rect.top / total, 0, 1);
+    };
+    let tick = false;
+    const update = () => {
+      tick = false;
+      const p = progress();
+      const i = Math.min(count - 1, Math.round(p * (count - 1)));
+      if (i !== current) {
+        // fall back to the nearest loaded frame so the scrub never blanks
+        let j = i;
+        while (j > 0 && !(frames[j] && frames[j].complete && frames[j].naturalWidth)) j--;
+        draw(j);
+      }
+      turn.style.setProperty('--tFade', easeOut(remap(p, 0.55, 0.95)).toFixed(3));
+    };
+    const onScroll = () => { if (!tick) { tick = true; requestAnimationFrame(update); } };
+    resize();
+    window.addEventListener('resize', () => { resize(); update(); });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+  }
+
   /* ---------- header: section links once the hero is behind ---------- */
   const body = document.body;
   const heroEl = document.getElementById('hero');
