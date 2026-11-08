@@ -31,7 +31,7 @@ Cleaning instead of replacing: a cushion-specific process that restores the orig
 
 ## Working assumptions (set by Claude on 2026-11-07 at Hans's request; Hans to confirm or change)
 
-- Price (confirmed 2026-11-08): 29 $ per pair, taxes extra; headband cleaning +15 $.
+- Price (confirmed 2026-11-08): 29 $ per pair, taxes extra. The headband is not cleaned (Hans, 2026-11-08).
 - Turnaround: 48 h from reception.
 - Handoff (confirmed by Hans 2026-11-08): drop-off only, no pickup, no mail-in. The customer picks their zone in the form; Hans replies by email with the nearest drop-off address.
 - Zones (confirmed 2026-11-08): Montréal et environs, Ottawa–Gatineau et environs, Québec–Lévis et environs.

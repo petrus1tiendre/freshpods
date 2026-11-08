@@ -324,7 +324,9 @@
       tl.to(oldImg, { rotation: 7 * d, scale: 1.12, duration: 0.95, ease: 'power2.in' }, 0.2);
     };
 
-    if (!reduceMotion && n > 1) {
+    // On phones the pinned, scroll-driven stepping stutters under fast flicks: there the steps change by tap or swipe only.
+    const touchy = window.matchMedia('(max-width: 820px), (hover: none) and (pointer: coarse)').matches;
+    if (!reduceMotion && !touchy && n > 1) {
       st = ScrollTrigger.create({
         trigger: track,
         start: 'top top',
@@ -345,6 +347,16 @@
       else if (!st) go(i, dir);
     };
     dots.forEach((b) => b.addEventListener('click', () => jump(parseInt(b.dataset.spsGo, 10))));
+    // Swipe on the photo (touch): left or up = next, right or down = previous.
+    let sx = 0, sy = 0, swiping = false;
+    const media = track.querySelector('.sps-media') || root;
+    media.addEventListener('touchstart', (e) => { const t0 = e.touches[0]; sx = t0.clientX; sy = t0.clientY; swiping = true; }, { passive: true });
+    media.addEventListener('touchend', (e) => {
+      if (!swiping) return; swiping = false;
+      const t0 = e.changedTouches[0]; const dx = t0.clientX - sx, dy = t0.clientY - sy;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return; // vertical moves are page scrolls
+      jump(current + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+    }, { passive: true });
     track.querySelectorAll('[data-sps-step]').forEach((b) => b.addEventListener('click', () => {
       const d = parseInt(b.dataset.spsStep, 10);
       jump(current + d, d);
