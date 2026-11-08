@@ -257,20 +257,6 @@
     document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in'));
   }
 
-  /* ---------- layered parallax (after Osmo's component): photo, headline, cushions in front ---------- */
-  const plx = document.querySelector('.plx');
-  if (plx && window.gsap && window.ScrollTrigger && !reduceMotion) {
-    gsap.registerPlugin(ScrollTrigger);
-    const pin = plx.querySelector('.plx__pin');
-    const L = (k) => plx.querySelector('[data-plx="' + k + '"]');
-    // The scene drifts while it scrolls past: each layer at its own speed, the fade covers the end.
-    gsap.timeline({ scrollTrigger: { trigger: pin, start: 'top bottom', end: 'bottom top', scrub: 0 } })
-      .fromTo(L('back'), { yPercent: -14 }, { yPercent: 14, ease: 'none' }, 0)
-      .fromTo(L('title'), { yPercent: 16, opacity: 0.55 }, { yPercent: -10, opacity: 1, ease: 'none' }, 0)
-      .fromTo(L('pads'), { yPercent: 52, scale: 0.9 }, { yPercent: -8, scale: 1, ease: 'none' }, 0)
-      .fromTo(L('fade'), { opacity: 0 }, { opacity: 1, ease: 'power1.in' }, 0.62);
-  }
-
   /* ---------- trust: grid and horizon driven by the scroll, cards tilt in one after the other ---------- */
   const trust = document.querySelector('.trust');
   if (trust && window.gsap && window.ScrollTrigger && !reduceMotion) {
