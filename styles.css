@@ -770,3 +770,8 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
 :root[data-theme="light"] .parallax { --hero-ground: var(--metal); color: var(--ink); }
 :root[data-theme="light"] .parallax__lead { color: var(--ink-2); }
 :root[data-theme="light"] .parallax__cta { background: var(--pill-bg); color: var(--pill-ink); }
+
+/* phone numbers */
+.book__phones { margin: 10px 0 0; color: var(--ink-2); }
+.book__phones a, .foot__line a { color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; border-bottom: 1px solid var(--line); }
+.book__phones a:hover, .foot__line a:hover { border-bottom-color: var(--ink); }
