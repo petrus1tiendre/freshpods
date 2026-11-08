@@ -114,8 +114,9 @@
     gsap.registerPlugin(ScrollTrigger);
     const triggerElement = parallax.querySelector('[data-parallax-layers]');
     if (triggerElement) {
+      // Speeds reordered on purpose: the headline sinks faster than the headset, so the headset climbs over it and the text reads as behind.
       const tl = gsap.timeline({ scrollTrigger: { trigger: triggerElement, start: '0% 0%', end: '100% 0%', scrub: 0 } });
-      [{ layer: '1', yPercent: 70 }, { layer: '2', yPercent: 55 }, { layer: '3', yPercent: 40 }, { layer: '4', yPercent: 10 }].forEach((o, idx) => {
+      [{ layer: '1', yPercent: 70 }, { layer: '2', yPercent: 18 }, { layer: '3', yPercent: 62 }, { layer: '4', yPercent: 6 }].forEach((o, idx) => {
         tl.to(triggerElement.querySelectorAll('[data-parallax-layer="' + o.layer + '"]'), { yPercent: o.yPercent, ease: 'none' }, idx === 0 ? undefined : '<');
       });
     }
