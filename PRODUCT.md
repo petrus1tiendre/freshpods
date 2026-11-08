@@ -35,7 +35,7 @@ Cleaning instead of replacing: a cushion-specific process that restores the orig
 - Turnaround: 48 h from reception.
 - Handoff (confirmed by Hans 2026-11-08): drop-off only, no pickup, no mail-in. The customer picks their zone in the form; Hans replies by email with the nearest drop-off address.
 - Zones (confirmed 2026-11-08): Montréal et environs, Ottawa–Gatineau et environs, Québec–Lévis et environs.
-- Contact: bonjour@freshpods.ca (mailto in the form; the address does not exist yet).
+- Contact: info@freshpods.ca (mailto in the form; the address does not exist yet).
 - Other headset brands: "casques à coussinets en maille" accepted; not stated per brand.
 - Replacement cushions cost "près de 90 $" (official pads price reference; verify).
 
