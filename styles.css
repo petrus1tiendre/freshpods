@@ -794,3 +794,29 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 }
 @media (max-width: 700px) { .turn__hint { display: none; } .turn__copy { right: var(--gutter); bottom: 36px; } .turn__cta { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .turn { height: auto; } .turn__pin { position: relative; height: 100svh; } }
+
+/* ---------- liquid-metal buttons (after jolyui's Liquid Metal Button) ---------- */
+.pill.is-metal {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: #0b0c0e; color: #f2f3f5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 28px -14px rgba(0, 0, 0, 0.7);
+}
+.pill.is-metal:hover { background: #0b0c0e; }
+.pill.is-metal .metal { position: absolute; inset: 0; z-index: 0; border-radius: inherit; overflow: hidden; }
+.pill.is-metal .metal canvas { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; display: block !important; border-radius: inherit !important; }
+.pill.is-metal .metal__core {
+  position: absolute; inset: 2px; z-index: 1; border-radius: inherit;
+  background: linear-gradient(180deg, #202125 0%, #050506 100%);
+  transition: inset 0.15s, box-shadow 0.15s;
+}
+.pill.is-metal:active .metal__core { box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5); }
+.pill.is-metal:active { transform: translateY(1px) scale(0.985); }
+.pill.is-metal .pill__label { position: relative; z-index: 2; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+.pill.is-metal .metal__ripple {
+  position: absolute; z-index: 3; width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35); pointer-events: none;
+  animation: metal-ripple 0.6s ease-out forwards;
+}
+@keyframes metal-ripple { 0% { transform: translate(-50%, -50%) scale(0); opacity: 0.6; } 100% { transform: translate(-50%, -50%) scale(4); opacity: 0; } }
+/* without WebGL or with reduced motion: a still metallic rim */
+.metal-fallback .pill.is-metal .metal { background: conic-gradient(from 210deg, #c9ccd2, #6f737a, #f4f5f7, #8a8f96, #d9dce1, #6f737a, #c9ccd2); }
