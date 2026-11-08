@@ -747,11 +747,14 @@ html.js.is-ready .parallax__copy > :nth-child(2) { animation-delay: 0.25s; }
 .parallax__cta:hover { background: #fff; }
 @media (max-width: 700px) {
   .parallax__header { padding: 80px 20px; }
-  .parallax__title { font-size: 15vw; }
-  .parallax__layer-img--casque { top: 30svh; height: 52svh; }
-  .parallax__layer-title { padding-top: 14svh; }
-    .parallax__content { min-height: 60svh; padding: 72px var(--gutter); }
+  .parallax__title { font-size: 21vw; line-height: 0.95; }
+  .parallax__layer-title { padding-top: 10svh; }
+  .parallax__layer-img--casque { top: 33svh; height: 52svh; max-width: 96vw; }
+  .parallax__visuals { height: 112%; }
+  .parallax__content { min-height: 0; padding: 36px var(--gutter) 72px; }
+  .parallax__copy { gap: 22px; }
   .parallax__cta { width: 100%; }
+}
 }
 
 /* day mode: the hero image stays dark, but it fades into the light page instead of into black */

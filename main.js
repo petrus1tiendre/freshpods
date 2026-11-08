@@ -116,12 +116,15 @@
   const parallax = document.querySelector('.parallax');
   if (parallax && !reduceMotion) {
     const layersEl = parallax.querySelector('[data-parallax-layers]');
-    const speeds = { 1: 70, 2: 62, 3: 14 };
-    const layers = [...layersEl.querySelectorAll('[data-parallax-layer]')].map((el) => ({ el, pct: speeds[el.dataset.parallaxLayer] || 0, h: 0 }));
+    // Phones get gentler speeds: the headline stays readable longer on a short, narrow screen.
+    const narrow = window.matchMedia('(max-width: 700px)');
+    const speedsFor = () => (narrow.matches ? { 1: 60, 2: 44, 3: 10 } : { 1: 70, 2: 62, 3: 14 });
+    const layers = [...layersEl.querySelectorAll('[data-parallax-layer]')].map((el) => ({ el, pct: 0, h: 0 }));
     let range = 1, last = -1;
     const measure = () => {
       range = Math.max(1, layersEl.offsetHeight);
-      layers.forEach((l) => { l.h = l.el.offsetHeight; });
+      const sp = speedsFor();
+      layers.forEach((l) => { l.h = l.el.offsetHeight; l.pct = sp[l.el.dataset.parallaxLayer] || 0; });
       last = -1;
     };
     const render = () => {
