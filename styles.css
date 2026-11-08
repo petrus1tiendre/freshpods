@@ -675,14 +675,7 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 .bloom { position: absolute; pointer-events: none; z-index: 0; filter: blur(70px); border-radius: 50%; opacity: 0.5; }
 .trust, .book { position: relative; overflow: hidden; }
 .book > *:not(.bloom) { position: relative; z-index: 1; }
-.bloom--book {
-  left: -10%; bottom: -20%; width: 70%; height: 80%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%);
-  animation: bloom-drift 22s ease-in-out infinite alternate-reverse;
-}
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .bloom--book { background: radial-gradient(50% 50% at 50% 50%, rgba(27, 29, 32, 0.12), transparent 70%); } }
-:root[data-theme="light"] .bloom--book { background: radial-gradient(50% 50% at 50% 50%, rgba(27, 29, 32, 0.12), transparent 70%); }
-@keyframes bloom-drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(6%, 4%, 0) scale(1.08); } }
+:root[data-theme="light"] @keyframes bloom-drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(6%, 4%, 0) scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { .bloom { animation: none; } }
 
 
