@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preload" as="image" href="photos/turntable/frame-001.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=23">
+  <link rel="stylesheet" href="styles.css?v=25">
   <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -59,7 +59,7 @@
     <section class="plx" aria-labelledby="plx-title">
       <div class="plx__pin">
         <div class="plx__layer plx__layer--back" data-plx="back" aria-hidden="true">
-          <img src="photos/casque-aluminium.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async">
+          <img src="photos/fond-graphite.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async">
         </div>
         <div class="plx__layer plx__layer--title" data-plx="title">
           <h2 class="plx__title" id="plx-title">Remis à neuf,<br>pas remplacés.</h2>
@@ -128,6 +128,7 @@
     <section class="trust" id="confiance" aria-labelledby="trust-title">
       <div class="trust__grid-bg" aria-hidden="true"></div>
       <div class="trust__horizon" aria-hidden="true"></div>
+      <div class="trust__inner">
       <h2 class="h2" id="trust-title" data-reveal>Ce que nous faisons, <span class="grad">et ce que nous ne faisons pas.</span></h2>
       <p class="lead" data-reveal style="--d:1">Vos coussinets valent cher. Voici comment on en prend soin.</p>
       <ul class="trust__grid">
@@ -148,6 +149,7 @@
           <p>Chaque paire est vérifiée sous lumière rasante. Si le résultat ne nous satisfait pas, on recommence avant de vous la rendre.</p>
         </li>
       </ul>
+    </div>
     </section>
 
     <section class="proof" id="preuves" aria-labelledby="proof-title">
@@ -177,23 +179,42 @@
     </section>
 
     <section class="facts" id="tarif" aria-labelledby="facts-title">
-      <h2 class="h2" id="facts-title" data-reveal>Ce qu’il faut savoir</h2>
-      <dl class="values">
-        <div class="value" data-reveal style="--d:0">
-          <dt>Tarif par paire</dt>
-          <dd><span class="value__big" data-count="29" data-suffix=" $">29 $</span><small>taxes en sus · bandeau du casque : +15 $</small></dd>
+      <h2 class="h2" id="facts-title" data-reveal>Ce qu’il faut <span class="grad">savoir.</span></h2>
+      <dl class="values" data-spot>
+        <div class="value value--price" data-reveal style="--d:0">
+          <dt>Par paire</dt>
+          <dd>
+            <span class="value__huge"><span data-count="29" data-suffix="">29</span><span class="value__unit">$</span></span>
+            <small>taxes en sus · bandeau du casque : +15 $ · aucun frais si l’on ne peut rien faire</small>
+          </dd>
         </div>
-        <div class="value" data-reveal style="--d:1">
+        <div class="value value--ring" data-reveal style="--d:1">
           <dt>Délai</dt>
-          <dd><span class="value__big" data-count="48" data-suffix=" h">48 h</span><small>à partir de la réception</small></dd>
+          <dd>
+            <span class="ring" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><circle class="ring__track" cx="50" cy="50" r="44"/><circle class="ring__arc" cx="50" cy="50" r="44"/></svg>
+              <span class="ring__num"><span data-count="48" data-suffix="">48</span><em>h</em></span>
+            </span>
+            <span class="sr-only">48 heures</span>
+            <small>à partir de la réception</small>
+          </dd>
         </div>
         <div class="value" data-reveal style="--d:2">
           <dt>Remise du casque</dt>
-          <dd><span class="value__big">Dépôt en main propre</span><small>adresse envoyée par courriel selon votre ville</small></dd>
+          <dd><span class="value__big">Dépôt en main propre</span><small>Vous choisissez votre ville dans le formulaire ; l’adresse de dépôt vous est envoyée par courriel.</small></dd>
         </div>
-        <div class="value" data-reveal style="--d:3">
+        <div class="value value--map" data-reveal style="--d:3">
           <dt>Région</dt>
-          <dd><span class="value__big">Montréal · Ottawa · Québec</span><small>Gatineau, Lévis et les environs compris</small></dd>
+          <dd>
+            <div class="route" aria-hidden="true">
+              <svg viewBox="0 0 600 120" preserveAspectRatio="none"><path class="route__line" d="M 20 80 Q 300 10 580 80"/></svg>
+              <span class="route__dot" style="--x:17.3%;--y:52%;--i:0"></span>
+              <span class="route__dot" style="--x:50%;--y:37.5%;--i:1"></span>
+              <span class="route__dot" style="--x:82.7%;--y:52%;--i:2"></span>
+            </div>
+            <span class="route__labels"><span>Ottawa–Gatineau</span><span>Montréal</span><span>Québec–Lévis</span></span>
+            <small>et leurs environs</small>
+          </dd>
         </div>
       </dl>
     </section>
@@ -267,7 +288,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=17" defer></script>
+  <script src="main.js?v=19" defer></script>
   <script type="module" src="metal.js?v=3"></script>
 </body>
 </html>

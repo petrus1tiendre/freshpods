@@ -265,9 +265,9 @@
     const L = (k) => plx.querySelector('[data-plx="' + k + '"]');
     // The scene drifts while it scrolls past: each layer at its own speed, the fade covers the end.
     gsap.timeline({ scrollTrigger: { trigger: pin, start: 'top bottom', end: 'bottom top', scrub: 0 } })
-      .fromTo(L('back'), { yPercent: -18 }, { yPercent: 18, ease: 'none' }, 0)
-      .fromTo(L('title'), { yPercent: 42, opacity: 0.4 }, { yPercent: -22, opacity: 1, ease: 'none' }, 0)
-      .fromTo(L('pads'), { yPercent: 38, scale: 0.92 }, { yPercent: -10, scale: 1, ease: 'none' }, 0)
+      .fromTo(L('back'), { yPercent: -14 }, { yPercent: 14, ease: 'none' }, 0)
+      .fromTo(L('title'), { yPercent: 16, opacity: 0.55 }, { yPercent: -10, opacity: 1, ease: 'none' }, 0)
+      .fromTo(L('pads'), { yPercent: 52, scale: 0.9 }, { yPercent: -8, scale: 1, ease: 'none' }, 0)
       .fromTo(L('fade'), { opacity: 0 }, { opacity: 1, ease: 'power1.in' }, 0.62);
   }
 
@@ -287,6 +287,19 @@
       scrollTrigger: { trigger: trust.querySelector('.trust__grid'), start: 'top 82%', once: true },
     });
   }
+
+  /* ---------- spotlight that follows the pointer across the fact cards ---------- */
+  document.querySelectorAll('[data-spot]').forEach((group) => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const cards = group.querySelectorAll('.value');
+    group.addEventListener('pointermove', (e) => {
+      cards.forEach((c) => {
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    }, { passive: true });
+  });
 
   /* ---------- split step slider (ported from 21st.dev, GSAP ScrollTrigger) ---------- */
   const track = document.getElementById('sps');
