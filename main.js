@@ -257,6 +257,37 @@
     document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in'));
   }
 
+  /* ---------- layered parallax (after Osmo's component): photo, headline, cushions in front ---------- */
+  const plx = document.querySelector('.plx');
+  if (plx && window.gsap && window.ScrollTrigger && !reduceMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+    const pin = plx.querySelector('.plx__pin');
+    const L = (k) => plx.querySelector('[data-plx="' + k + '"]');
+    // The scene drifts while it scrolls past: each layer at its own speed, the fade covers the end.
+    gsap.timeline({ scrollTrigger: { trigger: pin, start: 'top bottom', end: 'bottom top', scrub: 0 } })
+      .fromTo(L('back'), { yPercent: -18 }, { yPercent: 18, ease: 'none' }, 0)
+      .fromTo(L('title'), { yPercent: 42, opacity: 0.4 }, { yPercent: -22, opacity: 1, ease: 'none' }, 0)
+      .fromTo(L('pads'), { yPercent: 38, scale: 0.92 }, { yPercent: -10, scale: 1, ease: 'none' }, 0)
+      .fromTo(L('fade'), { opacity: 0 }, { opacity: 1, ease: 'power1.in' }, 0.62);
+  }
+
+  /* ---------- trust: grid and horizon driven by the scroll, cards tilt in one after the other ---------- */
+  const trust = document.querySelector('.trust');
+  if (trust && window.gsap && window.ScrollTrigger && !reduceMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+    const grid = trust.querySelector('.trust__grid-bg');
+    const horizon = trust.querySelector('.trust__horizon');
+    gsap.timeline({ scrollTrigger: { trigger: trust, start: 'top bottom', end: 'bottom top', scrub: 0.4 } })
+      .fromTo(grid, { y: 80 }, { y: -80, ease: 'none' }, 0)
+      .fromTo(horizon, { y: '18vh', scaleX: 0.9 }, { y: '-6vh', scaleX: 1.04, ease: 'none' }, 0);
+    const cards = trust.querySelectorAll('.trust__item');
+    cards.forEach((c) => { c.removeAttribute('data-reveal'); c.classList.remove('is-in'); c.classList.add('plx-card'); });
+    gsap.fromTo(cards, { opacity: 0, y: 70, z: -120, rotateX: 16 }, {
+      opacity: 1, y: 0, z: 0, rotateX: 0, duration: 1.1, ease: 'power3.out', stagger: 0.12,
+      scrollTrigger: { trigger: trust.querySelector('.trust__grid'), start: 'top 82%', once: true },
+    });
+  }
+
   /* ---------- split step slider (ported from 21st.dev, GSAP ScrollTrigger) ---------- */
   const track = document.getElementById('sps');
   if (track && window.gsap && window.ScrollTrigger) {
