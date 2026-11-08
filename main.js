@@ -280,6 +280,8 @@
     gsap.fromTo(cards, { opacity: 0, y: 70, z: -120, rotateX: 16 }, {
       opacity: 1, y: 0, z: 0, rotateX: 0, duration: 1.1, ease: 'power3.out', stagger: 0.12,
       scrollTrigger: { trigger: trust.querySelector('.trust__grid'), start: 'top 82%', once: true },
+      // Hand the cards back to CSS once they are in, so the hover lift (translate) is not pinned by GSAP's inline values.
+      onComplete: () => { cards.forEach((c) => c.classList.remove('plx-card')); gsap.set(cards, { clearProps: 'all' }); },
     });
   }
 
