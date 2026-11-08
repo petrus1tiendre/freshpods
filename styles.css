@@ -137,7 +137,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18e
   transition: transform 0.35s var(--ease-out), background 0.25s, box-shadow 0.35s var(--ease-out);
 }
 .pill:hover { background: var(--pill-hover); transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 2px 3px rgba(0, 0, 0, 0.18), 0 16px 30px -14px rgba(0, 0, 0, 0.55); }
-.pill:active { transform: translateY(0); }
+.pill:active { transform: translateY(0) scale(0.985); }
 .pill--small { min-height: 38px; padding: 0 16px; font-size: 0.9rem; }
 
 /* ---------- header ---------- */
@@ -716,3 +716,39 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 :root[data-theme="light"] .bloom--book { background: radial-gradient(50% 50% at 50% 50%, rgba(27, 29, 32, 0.12), transparent 70%); }
 @keyframes bloom-drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(6%, 4%, 0) scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { .bloom { animation: none; } }
+
+
+/* ---------- from the glassmorphism skill: rim of light, hover that deepens the frost, fallbacks ---------- */
+.trust__item, .value, .book__plate { position: relative; isolation: isolate; }
+.trust__item::before, .book__plate::before, .value::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; z-index: 2;
+  background: linear-gradient(135deg, var(--glass-line) 0%, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0) 62%, var(--glass-edge) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+.trust__item, .value {
+  transition: translate 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, box-shadow 0.4s;
+}
+@media (hover: hover) {
+  .trust__item:hover, .value:hover {
+    translate: 0 -2px;
+    background: color-mix(in srgb, var(--glass-bg), #fff 6%);
+    box-shadow: inset 0 1px 0 var(--glass-line), 0 18px 40px -20px var(--glass-shadow);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .top, .theme, .compare__tag, .compare__knob, .sps-brand .tag, .sps-dot, .value, .book__plate, .trust__item {
+    -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--metal-light);
+  }
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .value, .book__plate, .trust__item { background: var(--metal-light); }
+}
+
+/* ---------- hero enters once on load (tasteskill rule 5) ---------- */
+html.js .turn__copy > * { opacity: 0; translate: 0 18px; }
+html.js.is-ready .turn__copy > * { animation: hero-enter 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+html.js.is-ready .turn__copy > :nth-child(2) { animation-delay: 0.1s; }
+html.js.is-ready .turn__copy > :nth-child(3) { animation-delay: 0.2s; }
+@keyframes hero-enter { to { opacity: 1; translate: 0 0; } }
+@media (prefers-reduced-motion: reduce) { html.js .turn__copy > * { opacity: 1; translate: none; animation: none; } }

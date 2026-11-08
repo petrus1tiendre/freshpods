@@ -11,9 +11,16 @@
   if (!reduceMotion && window.Lenis) {
     const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1, smoothWheel: true, syncTouch: false });
     window.__lenis = lenis;
-    const tick = (time) => { lenis.raf(time); requestAnimationFrame(tick); };
-    requestAnimationFrame(tick);
-    if (window.ScrollTrigger) lenis.on('scroll', () => window.ScrollTrigger.update());
+    // Official Lenis + GSAP sync (gsap-web skill): one ticker drives both, so ScrollTrigger never drifts.
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      const tick = (time) => { lenis.raf(time); requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    }
     // In-page anchors go through Lenis so they glide too.
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener('click', (e) => {
@@ -29,6 +36,8 @@
       });
     });
   }
+
+  requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('is-ready')));
 
   /* ---------- falling light rain: thin streaks and sparks on a canvas ---------- */
   if (!reduceMotion) {
