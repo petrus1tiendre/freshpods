@@ -1,4 +1,4 @@
-/* FreshPads — anodized aluminium service manual */
+/* FreshPods — anodized aluminium service manual */
 
 @font-face {
   font-family: "Familjen Grotesk";
@@ -37,8 +37,9 @@
   --error-ring: rgba(180, 69, 47, 0.18);
   color-scheme: light;
 
-  --display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  /* Apple system faces: SF Pro on iPhone, iPad and Mac; the self-hosted grotesks stand in elsewhere */
+  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Familjen Grotesk", Arial, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Hanken Grotesk", Arial, sans-serif;
 
   --gutter: clamp(16px, 4vw, 48px);
   --max: 1200px;
@@ -55,6 +56,10 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -93,7 +98,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18e
 
 /* ---------- type ---------- */
 .h2 {
-  font: 560 clamp(1.9rem, 3.6vw, 3.1rem)/1.02 var(--display);
+  font: 600 clamp(1.9rem, 3.6vw, 3.1rem)/1.02 var(--display);
   letter-spacing: -0.028em;
   text-wrap: balance;
   max-width: 18ch;
@@ -150,7 +155,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18e
 .wordmark__mark { width: 24px; height: 20px; }
 
 /* ---------- hero ---------- */
-.hero { position: relative; height: 320svh; }
+.hero { position: relative; height: 210svh; }
 .hero__pin {
   position: sticky; top: 0;
   height: 100svh;
@@ -159,7 +164,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18e
   overflow: hidden;
 }
 .hero__title {
-  font: 560 clamp(2.4rem, 4.9vw, 4.6rem)/0.98 var(--display);
+  font: 600 clamp(2.4rem, 4.9vw, 4.6rem)/0.98 var(--display);
   letter-spacing: -0.035em;
   text-align: center;
   text-wrap: balance;
@@ -423,7 +428,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18e
 }
 .value dd { margin-top: 18px; display: flex; flex-direction: column; gap: 6px; }
 .value__big {
-  font: 560 clamp(1.7rem, 2.6vw, 2.3rem)/1 var(--display);
+  font: 600 clamp(1.7rem, 2.6vw, 2.3rem)/1 var(--display);
   letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
 }
 .value small { color: var(--ink-3); font-size: 0.85rem; }
@@ -573,7 +578,7 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 }
 
 /* ---------- split step slider (ported from 21st.dev "Scroll Split Product Slider", GSAP) ---------- */
-.sps-track { position: relative; width: 100%; container-type: inline-size; height: calc(100svh * 2.4); }
+.sps-track { position: relative; width: 100%; container-type: inline-size; height: calc(100svh * 1.9); }
 .sps-root {
   position: sticky; top: 0; height: 100svh; overflow: hidden;
   display: grid; grid-template-columns: 1fr 1fr;
@@ -614,7 +619,7 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 .sps-now { left: 0; top: 0; }
 .sps-all { right: 0; bottom: 0; }
 .sps-count > i { position: absolute; left: 0.35em; top: 50%; width: 2.2em; height: 1px; background: var(--mint); transform: rotate(-48deg); }
-.sps-title { margin: 0 0 0.5em; font: 560 clamp(30px, 3.6cqw, 62px)/1.02 var(--display); letter-spacing: -0.03em; text-wrap: balance; }
+.sps-title { margin: 0 0 0.5em; font: 600 clamp(30px, 3.6cqw, 62px)/1.02 var(--display); letter-spacing: -0.03em; text-wrap: balance; }
 .sps-desc { margin: 0 0 2em; max-width: 27em; font-size: clamp(14px, 1.12cqw, 18px); line-height: 1.55; color: var(--ink-2); }
 .sps-cta { min-width: 15em; }
 .sps-arrows { position: absolute; right: max(18px, 2.6cqw); bottom: max(20px, 3.6cqw); display: flex; flex-direction: column; gap: clamp(8px, 0.9cqw, 14px); }
@@ -707,7 +712,7 @@ html.js .step__img[data-reveal].is-in { transform: none; }
   transition-delay: calc(var(--d, 0) * 90ms);
 }
 .sx__kicker { margin: 0 0 10px; font: 600 0.72rem/1 var(--body); letter-spacing: 0.2em; text-transform: uppercase; color: #9ea3aa; }
-.sx__title { margin: 0 0 14px; font: 560 clamp(2rem, 3.6vw, 3.2rem)/1.02 var(--display); letter-spacing: -0.03em; color: #fff; }
+.sx__title { margin: 0 0 14px; font: 600 clamp(2rem, 3.6vw, 3.2rem)/1.02 var(--display); letter-spacing: -0.03em; color: #fff; }
 .sx__text { margin: 0 0 28px; max-width: 34em; color: #b7bbc1; font-size: 1.05rem; line-height: 1.55; }
 .sx__specs {
   display: grid; gap: 0; margin: 0;
@@ -746,3 +751,11 @@ html.js .step__img[data-reveal].is-in { transform: none; }
   .sx__ring, .sx__blob, .sx__disc { animation: none; }
   .sx__img, .sx__item, .sx__thumb { transition: none; }
 }
+
+/* ---------- falling light rain (after the Qronos template hero) ---------- */
+.rain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.rain--hero { z-index: 0; opacity: calc(1 - var(--pS)); }
+.rain--sx { z-index: 0; opacity: 0.9; }
+.hero__title, .hero__cta, .hero__note { position: relative; z-index: 3; }
+.hero__rail, .hero__hint { z-index: 4; }
+@media (prefers-reduced-motion: reduce) { .rain { display: none; } }

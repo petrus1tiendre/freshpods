@@ -16,7 +16,7 @@ delegated: static HTML/CSS/JS (one page, no build step), so it deploys anywhere 
 
 ## Product Purpose
 
-FreshPads is a cushion-cleaning service for premium headphones. The owner hands over the headset (or just the cushions, which clip off magnetically), FreshPads deep-cleans the mesh fabric and foam, and returns them white and fresh. Success: the customer books a cleaning, gets the pads back looking like the "after" photos, and recommends the service.
+FreshPods is a cushion-cleaning service for premium headphones. The owner hands over the headset (or just the cushions, which clip off magnetically), FreshPods deep-cleans the mesh fabric and foam, and returns them white and fresh. Success: the customer books a cleaning, gets the pads back looking like the "after" photos, and recommends the service.
 
 ## Positioning
 
@@ -27,7 +27,7 @@ Cleaning instead of replacing: a cushion-specific process that restores the orig
 - `photos/pads-sales-1.jpg`, `photos/pads-sales-2.jpg`: the real dirty cushions (AirPods Max, white), shot by Hans on 2026-11-07.
 - `photos/casque-propre.jpg`: the same headset with clean cushions, different angle.
 - `photos/clean.jpg` (when present): synthetic "after" derived from `pads-sales-2.jpg` for the scroll demo. Labeled synthetic; to be replaced by a real after photo in the same framing.
-- Name: FreshPads. Domain `freshpads.ca` verified free on 2026-11-07 (not yet registered).
+- Name: FreshPods. Domain `freshpods.ca` verified free on 2026-11-07 (not yet registered).
 
 ## Working assumptions (set by Claude on 2026-11-07 at Hans's request; Hans to confirm or change)
 
@@ -35,7 +35,7 @@ Cleaning instead of replacing: a cushion-specific process that restores the orig
 - Turnaround: 48 h from reception.
 - Handoff: drop-off or mail-in; pickup in Gatineau–Ottawa +10 $; mail-in anywhere in Canada.
 - Region: Gatineau · Ottawa.
-- Contact: bonjour@freshpads.ca (mailto in the form; the address does not exist yet).
+- Contact: bonjour@freshpods.ca (mailto in the form; the address does not exist yet).
 - Other headset brands: "casques à coussinets en maille" accepted; not stated per brand.
 - Replacement cushions cost "près de 90 $" (official pads price reference; verify).
 

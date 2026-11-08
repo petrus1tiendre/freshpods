@@ -1,4 +1,4 @@
-// FreshPads — scroll-driven hero, before/after slider, booking form.
+// FreshPods — scroll-driven hero, before/after slider, booking form.
 
 (function () {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -6,6 +6,26 @@
   const remap = (v, a, b) => clamp((v - a) / (b - a), 0, 1);
   const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
   const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+  /* ---------- inertia scroll (Lenis): wheel and trackpad glide, touch stays native ---------- */
+  if (!reduceMotion && window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1, smoothWheel: true, syncTouch: false });
+    window.__lenis = lenis;
+    const tick = (time) => { lenis.raf(time); requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+    if (window.ScrollTrigger) lenis.on('scroll', () => window.ScrollTrigger.update());
+    // In-page anchors go through Lenis so they glide too.
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (id.length < 2) return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -64, duration: 1.1 });
+      });
+    });
+  }
 
   /* ---------- hero: porthole grows, cushions get clean ---------- */
   const hero = document.getElementById('hero');
@@ -45,9 +65,9 @@
       const total = hero.offsetHeight - window.innerHeight;
       const p = Number.isFinite(forced) ? clamp(forced, 0, 1) : clamp(-rect.top / total, 0, 1);
 
-      const pT = easeOut(remap(p, 0, 0.2));        // title + CTA fade
-      const pS = easeInOut(remap(p, 0.02, 0.5));   // porthole grows to full screen
-      const pC = easeInOut(remap(p, 0.3, 0.92));   // clean spreads
+      const pT = easeOut(remap(p, 0, 0.18));       // title + CTA fade
+      const pS = easeInOut(remap(p, 0.02, 0.38));  // porthole grows to full screen
+      const pC = easeInOut(remap(p, 0.22, 0.85));  // clean spreads
 
       hero.style.setProperty('--pT', pT.toFixed(4));
       hero.style.setProperty('--pS', pS.toFixed(4));
@@ -64,6 +84,74 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', () => { measure(); update(); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); update(); });
+  }
+
+  /* ---------- falling light rain: thin streaks and sparks on a canvas ---------- */
+  if (!reduceMotion) {
+    document.querySelectorAll('canvas[data-rain]').forEach((canvas) => {
+      const ctx = canvas.getContext('2d');
+      const forceLight = canvas.dataset.rain === 'light';
+      const darkMq = window.matchMedia('(prefers-color-scheme: dark)');
+      const isDark = () => forceLight || (document.documentElement.getAttribute('data-theme') || (darkMq.matches ? 'dark' : 'light')) === 'dark';
+      let w = 0, h = 0, dpr = 1, streaks = [], sparks = [], running = false, raf = 0, last = 0;
+
+      const rnd = (a, b) => a + Math.random() * (b - a);
+      const makeStreak = (fresh) => ({
+        x: Math.random() * w,
+        y: fresh ? -rnd(0, h) : Math.random() * h,
+        len: rnd(40, 240),
+        speed: rnd(90, 420),
+        alpha: rnd(0.1, forceLight ? 0.55 : 0.42),
+        width: Math.random() < 0.15 ? 1.5 : 1,
+      });
+      const makeSpark = () => ({ x: Math.random() * w, y: Math.random() * h, r: rnd(0.6, 1.6), phase: Math.random() * Math.PI * 2, speed: rnd(0.6, 1.6) });
+
+      const resize = () => {
+        const rect = canvas.getBoundingClientRect();
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = Math.max(1, rect.width); h = Math.max(1, rect.height);
+        canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const count = Math.round(Math.min(160, Math.max(40, w / 9)));
+        streaks = Array.from({ length: count }, () => makeStreak(false));
+        sparks = Array.from({ length: Math.round(count / 2) }, makeSpark);
+      };
+
+      const draw = (now) => {
+        if (!running) return;
+        const dt = Math.min(0.05, (now - last) / 1000 || 0.016);
+        last = now;
+        ctx.clearRect(0, 0, w, h);
+        const dark = isDark();
+        const base = dark ? '255,255,255' : '27,29,32';
+        const gain = dark ? 1 : 0.45;
+        for (const s of streaks) {
+          s.y += s.speed * dt;
+          if (s.y - s.len > h) Object.assign(s, makeStreak(true));
+          const g = ctx.createLinearGradient(0, s.y - s.len, 0, s.y);
+          g.addColorStop(0, 'rgba(' + base + ',0)');
+          g.addColorStop(0.85, 'rgba(' + base + ',' + (s.alpha * gain).toFixed(3) + ')');
+          g.addColorStop(1, 'rgba(' + base + ',' + Math.min(1, s.alpha * gain * 1.6).toFixed(3) + ')');
+          ctx.fillStyle = g;
+          ctx.fillRect(s.x, s.y - s.len, s.width, s.len);
+        }
+        for (const p of sparks) {
+          p.phase += p.speed * dt;
+          const a = (0.25 + 0.75 * (0.5 + 0.5 * Math.sin(p.phase))) * (dark ? 0.9 : 0.35);
+          ctx.fillStyle = 'rgba(' + base + ',' + a.toFixed(3) + ')';
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+        }
+        raf = requestAnimationFrame(draw);
+      };
+      const start = () => { if (running) return; running = true; last = performance.now(); raf = requestAnimationFrame(draw); };
+      const stop = () => { running = false; cancelAnimationFrame(raf); };
+
+      resize();
+      window.addEventListener('resize', resize);
+      const io = new IntersectionObserver((entries) => { entries[0].isIntersecting ? start() : stop(); }, { threshold: 0.01 });
+      io.observe(canvas.parentElement);
+      document.addEventListener('visibilitychange', () => { document.hidden ? stop() : (io.takeRecords(), start()); });
+    });
   }
 
   /* ---------- header: section links once the hero is behind ---------- */
@@ -221,7 +309,6 @@
         trigger: track,
         start: 'top top',
         end: 'bottom bottom',
-        snap: { snapTo: 1 / steps, duration: { min: 0.3, max: 0.8 }, delay: 0.08, ease: 'power2.inOut' },
         onUpdate: (self) => {
           const i = Math.round(clamp(self.progress, 0, 1) * steps);
           if (i !== current) go(i, self.direction > 0 ? 1 : -1);
@@ -231,7 +318,10 @@
     const jump = (to, dir) => {
       const i = clamp(to, 0, n - 1);
       go(i, dir);
-      if (st && st.isActive) window.scrollTo({ top: st.start + (i / steps) * (st.end - st.start), behavior: 'instant' });
+      if (st && st.isActive) {
+        const top = st.start + (i / steps) * (st.end - st.start);
+        if (window.__lenis) window.__lenis.scrollTo(top, { immediate: true }); else window.scrollTo({ top, behavior: 'instant' });
+      }
       else if (!st) go(i, dir);
     };
     dots.forEach((b) => b.addEventListener('click', () => jump(parseInt(b.dataset.spsGo, 10))));
@@ -305,7 +395,7 @@
   const form = document.getElementById('form');
   const done = document.getElementById('form-done');
   if (form && done) {
-    const to = 'bonjour@freshpads.ca'; // TODO: placeholder, replace with the real address before publishing
+    const to = 'bonjour@freshpods.ca'; // TODO: placeholder, replace with the real address before publishing
     const fields = {
       name: form.querySelector('#f-name'),
       contact: form.querySelector('#f-contact'),
@@ -336,7 +426,7 @@
         `Casque : ${fields.model.value}`,
         fields.message.value.trim() ? `Message : ${fields.message.value.trim()}` : null,
         '',
-        'Envoyé depuis freshpads.ca',
+        'Envoyé depuis freshpods.ca',
       ].filter(Boolean).join('\n');
       const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       form.querySelector('.form__submit').classList.add('is-sending');

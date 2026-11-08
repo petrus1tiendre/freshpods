@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>FreshPads — Remise à neuf de coussinets de casque</title>
-  <meta name="description" content="FreshPads remet à neuf les coussinets de votre casque audio : maille, mousse et odeur, comme au premier jour, pour une fraction du prix du remplacement.">
+  <title>FreshPods — Remise à neuf de coussinets de casque</title>
+  <meta name="description" content="FreshPods remet à neuf les coussinets de votre casque audio : maille, mousse et odeur, comme au premier jour, pour une fraction du prix du remplacement.">
   <meta name="theme-color" content="#e9eaec">
-  <meta property="og:title" content="FreshPads — Vos coussinets, remis à neuf.">
+  <meta property="og:title" content="FreshPods — Vos coussinets, remis à neuf.">
   <meta property="og:description" content="Remise à neuf des coussinets de casque audio, 29 $ la paire. Compatible AirPods Max et casques à coussinets en maille.">
   <meta property="og:image" content="photos/casque-propre.jpg">
   <meta property="og:type" content="website">
@@ -20,9 +20,9 @@
   <a class="skip" href="#reserver">Aller à la réservation</a>
 
   <header class="top">
-    <a class="wordmark" href="#" aria-label="FreshPads, accueil">
+    <a class="wordmark" href="#" aria-label="FreshPods, accueil">
       <svg class="wordmark__mark" viewBox="0 0 24 20" aria-hidden="true"><ellipse cx="12" cy="10" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="12" cy="10" rx="4" ry="3" fill="currentColor"/></svg>
-      <span>FreshPads</span>
+      <span>FreshPods</span>
     </a>
     <div class="top__right">
       <nav class="top__links" aria-label="Sections">
@@ -41,6 +41,7 @@
   <main>
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero__pin">
+        <canvas class="rain rain--hero" data-rain aria-hidden="true"></canvas>
         <h1 class="hero__title" id="hero-title">Vos coussinets,<br>remis à&nbsp;neuf.</h1>
 
         <div class="hero__slot" id="hero-slot" aria-hidden="true"></div>
@@ -137,6 +138,7 @@
 
       <div class="sx" id="showcase" data-state="avant" data-reveal>
         <div class="sx__glow" aria-hidden="true"></div>
+        <canvas class="rain rain--sx" data-rain="light" aria-hidden="true"></canvas>
         <div class="sx__grid">
           <div class="sx__stage">
             <div class="sx__ring" aria-hidden="true"></div>
@@ -256,20 +258,21 @@
         <div class="form__done" id="form-done" hidden>
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.5l3 3 6-7"/></svg>
           <h3>Demande prête.</h3>
-          <p>Votre courriel s'est ouvert avec la demande. Si ce n'est pas le cas, écrivez-nous à <a href="mailto:bonjour@freshpads.ca">bonjour@freshpads.ca</a>.</p>
+          <p>Votre courriel s'est ouvert avec la demande. Si ce n'est pas le cas, écrivez-nous à <a href="mailto:bonjour@freshpods.ca">bonjour@freshpods.ca</a>.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <p class="foot__brand"><svg class="wordmark__mark" viewBox="0 0 24 20" aria-hidden="true"><ellipse cx="12" cy="10" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="12" cy="10" rx="4" ry="3" fill="currentColor"/></svg> FreshPads</p>
-    <p class="foot__line">freshpads.ca · Canada · © 2026</p>
-    <p class="foot__legal">AirPods Max est une marque d'Apple Inc. FreshPads est un service indépendant, sans lien avec Apple.</p>
+    <p class="foot__brand"><svg class="wordmark__mark" viewBox="0 0 24 20" aria-hidden="true"><ellipse cx="12" cy="10" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="12" cy="10" rx="4" ry="3" fill="currentColor"/></svg> FreshPods</p>
+    <p class="foot__line">freshpods.ca · Canada · © 2026</p>
+    <p class="foot__legal">AirPods Max est une marque d'Apple Inc. FreshPods est un service indépendant, sans lien avec Apple.</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
   <script src="main.js" defer></script>
 </body>
 </html>
