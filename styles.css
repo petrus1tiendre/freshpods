@@ -820,3 +820,43 @@ html.js .step__img[data-reveal].is-in { transform: none; }
 @keyframes metal-ripple { 0% { transform: translate(-50%, -50%) scale(0); opacity: 0.6; } 100% { transform: translate(-50%, -50%) scale(4); opacity: 0; } }
 /* without WebGL or with reduced motion: a still metallic rim */
 .metal-fallback .pill.is-metal .metal { background: conic-gradient(from 210deg, #c9ccd2, #6f737a, #f4f5f7, #8a8f96, #d9dce1, #6f737a, #c9ccd2); }
+
+/* ---------- liquid glass (Apple-style): translucent surfaces with a specular rim ---------- */
+:root { --glass-bg: rgba(255, 255, 255, 0.42); --glass-line: rgba(255, 255, 255, 0.75); --glass-shadow: rgba(27, 29, 32, 0.18); --glass-tint: rgba(27, 29, 32, 0.06); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --glass-bg: rgba(255, 255, 255, 0.07); --glass-line: rgba(255, 255, 255, 0.22); --glass-shadow: rgba(0, 0, 0, 0.55); --glass-tint: rgba(255, 255, 255, 0.05); } }
+:root[data-theme="dark"] { --glass-bg: rgba(255, 255, 255, 0.07); --glass-line: rgba(255, 255, 255, 0.22); --glass-shadow: rgba(0, 0, 0, 0.55); --glass-tint: rgba(255, 255, 255, 0.05); }
+
+.glass, .top, .theme, .porthole__state, .compare__tag, .compare__knob, .sps-brand .tag, .sps-dot, .value, .book__plate, .top__links {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(22px) saturate(1.7); backdrop-filter: blur(22px) saturate(1.7);
+  box-shadow:
+    inset 0 1px 0 var(--glass-line),                 /* top specular */
+    inset 0 -1px 0 rgba(255, 255, 255, 0.12),        /* soft bottom edge */
+    inset 1px 0 0 rgba(255, 255, 255, 0.18), inset -1px 0 0 rgba(255, 255, 255, 0.18),
+    0 10px 30px -18px var(--glass-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.top { border: 0; border-bottom: 1px solid var(--line); box-shadow: inset 0 1px 0 var(--glass-line); }
+.top__links { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; border: 0; }
+.theme { border-radius: 50%; }
+.value { background: var(--glass-bg); }
+.values { background: transparent; border: 0; gap: 10px; overflow: visible; }
+.value { border-radius: 20px; }
+.book__plate { background: var(--glass-bg); }
+.field input, .field textarea, .field select {
+  background: var(--glass-tint);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 2px 6px rgba(27, 29, 32, 0.08);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.sps-dot { border: 2px solid rgba(255, 255, 255, 0.5); }
+.sps-dot[aria-current="true"] { border-color: var(--mint); }
+.sx__dock, .compare__knob { backdrop-filter: blur(22px) saturate(1.7); -webkit-backdrop-filter: blur(22px) saturate(1.7); }
+/* glass sheen that slides on hover for the glass pills */
+.porthole__state, .compare__tag, .sps-brand .tag { position: relative; overflow: hidden; }
+.compare__tag::after, .sps-brand .tag::after {
+  content: ""; position: absolute; inset: -40% -60%; pointer-events: none;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+  transform: translateX(-60%); transition: transform 0.9s var(--ease-out);
+}
+.compare:hover .compare__tag::after, .sps-root:hover .sps-brand .tag::after { transform: translateX(60%); }
