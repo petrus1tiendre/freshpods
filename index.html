@@ -15,8 +15,8 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231b1d20'/%3E%3Cellipse cx='16' cy='16' rx='9' ry='7.5' fill='none' stroke='%23e9eaec' stroke-width='2.4'/%3E%3Cellipse cx='16' cy='16' rx='3.6' ry='2.8' fill='%2319c7a8'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" as="image" href="photos/turntable/frame-001.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=28">
+  <link rel="preload" as="image" href="photos/fond-graphite.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=30">
   <script>document.documentElement.className="js";try{var t=localStorage.getItem("fp-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -43,16 +43,26 @@
   </header>
 
   <main id="main" tabindex="-1">
-    <section class="turn" id="hero" aria-labelledby="hero-title" data-frames="96" data-src="photos/turntable/frame-{i}.jpg" data-src-m="photos/turntable/m/frame-{i}.jpg">
-      <div class="turn__pin">
-        <canvas class="turn__canvas" aria-hidden="true"></canvas>
-        <div class="bloom bloom--hero" aria-hidden="true"></div>
-        <div class="turn__copy">
-          <h1 class="turn__title" id="hero-title">Vos coussinets,<br><span class="grad">remis à&nbsp;neuf.</span></h1>
-          <p class="turn__lead">Maille, mousse et odeur, comme au premier jour. 29&nbsp;$ la paire, prêts en 48&nbsp;h.</p>
-          <a class="pill pill--primary turn__cta" href="#reserver">Réserver une remise à neuf</a>
+    <section class="parallax" id="hero" aria-labelledby="hero-title">
+      <div class="parallax__header">
+        <div class="parallax__visuals">
+          <div class="parallax__black-line-overflow" aria-hidden="true"></div>
+          <div data-parallax-layers class="parallax__layers">
+            <img src="photos/fond-graphite.webp" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async" data-parallax-layer="1" alt="" class="parallax__layer-img">
+            <img src="photos/casque-detoure.png" width="845" height="958" loading="eager" decoding="async" data-parallax-layer="2" alt="" class="parallax__layer-img parallax__layer-img--casque">
+            <div data-parallax-layer="3" class="parallax__layer-title">
+              <h1 class="parallax__title" id="hero-title"><span class="sr-only">Vos coussinets, </span>Remis à&nbsp;neuf.</h1>
+            </div>
+            <img src="photos/coussinets-detoures.png" width="645" height="1100" loading="eager" decoding="async" data-parallax-layer="4" alt="" class="parallax__layer-img parallax__layer-img--pads">
+          </div>
+          <div class="parallax__fade" aria-hidden="true"></div>
         </div>
-        <p class="turn__hint" aria-hidden="true">Faites défiler</p>
+      </div>
+      <div class="parallax__content">
+        <div class="parallax__copy">
+          <p class="parallax__lead">Vos coussinets de casque, maille, mousse et odeur, comme au premier jour. 29&nbsp;$ la paire, prêts en 48&nbsp;h.</p>
+          <a class="pill pill--primary parallax__cta" href="#reserver">Réserver une remise à neuf</a>
+        </div>
       </div>
     </section>
 
@@ -276,7 +286,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=22" defer></script>
+  <script src="main.js?v=23" defer></script>
   <script type="module" src="metal.js?v=3"></script>
 </body>
 </html>

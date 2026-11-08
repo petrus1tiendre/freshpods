@@ -108,72 +108,17 @@
     });
   }
 
-  /* ---------- turntable: frames drawn on a canvas, driven by the scroll (Apple's technique) ---------- */
-  const turn = document.getElementById('hero');
-  if (turn && parseInt(turn.dataset.frames, 10) > 0) {
-    const count = parseInt(turn.dataset.frames, 10);
-    const src = (window.innerWidth <= 820 && turn.dataset.srcM) ? turn.dataset.srcM : turn.dataset.src;
-    const canvas = turn.querySelector('.turn__canvas');
-    const ctx = canvas.getContext('2d');
-    const frames = new Array(count);
-    let loaded = 0, current = -1, w = 0, h = 0, dpr = 1, vh = window.innerHeight, total = 1;
-    const pad = (n) => String(n).padStart(3, '0');
-    const draw = (i) => {
-      const img = frames[i];
-      if (!img || !img.complete || !img.naturalWidth) return;
-      current = i;
-      // cover
-      const s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
-      const dw = img.naturalWidth * s, dh = img.naturalHeight * s;
-      ctx.clearRect(0, 0, w, h);
-      ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
-    };
-    const resize = () => {
-      const r = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 820 ? 1.5 : 2);
-      w = r.width; h = r.height;
-      vh = window.innerHeight; total = Math.max(1, turn.offsetHeight - vh);
-      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (current >= 0) draw(current);
-    };
-    const load = (i) => {
-      if (frames[i]) return;
-      const img = new Image();
-      img.decoding = 'async';
-      img.src = src.replace('{i}', pad(i + 1));
-      img.onload = () => { loaded++; if (i === 0 && current < 0) draw(0); };
-      frames[i] = img;
-    };
-    // First frame now, the rest in order once the section is near.
-    load(0);
-    const loadAll = () => { if (reduceMotion) return; for (let i = 1; i < count; i++) load(i); };
-    const near = new IntersectionObserver((e) => { if (e[0].isIntersecting) { loadAll(); near.disconnect(); } }, { rootMargin: '150% 0px' });
-    near.observe(turn);
-    const progress = () => {
-      if (reduceMotion) return 0;
-      const top = turn.getBoundingClientRect().top;
-      return clamp(-top / total, 0, 1);
-    };
-    let tick = false;
-    const update = () => {
-      tick = false;
-      const p = progress();
-      const i = Math.min(count - 1, Math.round(p * (count - 1)));
-      if (i !== current) {
-        // fall back to the nearest loaded frame so the scrub never blanks
-        let j = i;
-        while (j > 0 && !(frames[j] && frames[j].complete && frames[j].naturalWidth)) j--;
-        draw(j);
-      }
-      turn.style.setProperty('--tFade', easeOut(remap(p, 0.45, 0.9)).toFixed(3));
-      turn.classList.toggle('is-faded', p >= 0.86);
-    };
-    const onScroll = () => { if (!tick) { tick = true; requestAnimationFrame(update); } };
-    resize();
-    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { resize(); update(); }, 120); });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    update();
+  /* ---------- hero: layered parallax (Osmo's component, ported from React to plain JS) ---------- */
+  const parallax = document.querySelector('.parallax');
+  if (parallax && window.gsap && window.ScrollTrigger && !reduceMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+    const triggerElement = parallax.querySelector('[data-parallax-layers]');
+    if (triggerElement) {
+      const tl = gsap.timeline({ scrollTrigger: { trigger: triggerElement, start: '0% 0%', end: '100% 0%', scrub: 0 } });
+      [{ layer: '1', yPercent: 70 }, { layer: '2', yPercent: 55 }, { layer: '3', yPercent: 40 }, { layer: '4', yPercent: 10 }].forEach((o, idx) => {
+        tl.to(triggerElement.querySelectorAll('[data-parallax-layer="' + o.layer + '"]'), { yPercent: o.yPercent, ease: 'none' }, idx === 0 ? undefined : '<');
+      });
+    }
   }
 
   /* ---------- header: section links once the hero is behind ---------- */
@@ -181,7 +126,8 @@
   const heroEl = document.getElementById('hero');
   function pastHero() {
     if (!heroEl) return;
-    body.classList.toggle('is-past', window.scrollY > heroEl.offsetHeight - window.innerHeight * 0.5);
+    const head = heroEl.querySelector('.parallax__header') || heroEl;
+    body.classList.toggle('is-past', window.scrollY > head.offsetHeight - window.innerHeight * 0.5);
   }
   window.addEventListener('scroll', pastHero, { passive: true });
   pastHero();

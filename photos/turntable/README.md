@@ -1,1 +1,0 @@
-Images extraites (12 i/s, 1440 px) de source-veo-3.1.mp4, vidéo générée le 2026-11-08 avec Veo 3.1 (Vertex AI, projet Google Cloud de Hans) à partir de photos/realisation-apres.jpg comme référence. Illustration, pas une prise de vue réelle.
