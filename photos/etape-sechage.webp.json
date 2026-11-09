@@ -1,4 +1,4 @@
 {
-  "prompt": "AI-generated illustration (Canva image generation, 2026-11-08, replacing the 2026-11-07 version at Hans's request for more realism): two white mesh ear cushions drying flat on a folded grey microfibre cloth on brushed aluminium, soft window light. Not a photograph of FreshPods' work; illustration only, never before/after proof. Exported from Canva design DAHaRjrH7jM page 8, converted with cwebp.",
-  "createdAt": "2026-11-08T23:05:00Z"
+  "prompt": "AI-generated illustration (Google Vertex AI, gemini-3-pro-image, 2026-11-09), not a photograph of FreshPods work; illustration only, never before/after proof. Generated from official Apple AirPods Max product photos and Hans real photos as references, with the rules and prompt for etape-sechage in refs-apple/PROMPTS-CHATGPT.md (kept out of the repo). Converted with ImageMagick.",
+  "createdAt": "2026-11-09T23:54:33Z"
 }

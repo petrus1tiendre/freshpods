@@ -1,4 +1,4 @@
 {
-  "prompt": "AI-generated atmosphere image (Canva image generation, 2026-11-07), not a photograph of FreshPads' work; used as illustration only, never as before/after proof. Prompt theme: etape-nettoyage (white mesh-cushion headphones / cushion details on brushed aluminium, cool silver studio light). Exported from Canva design DAHaRjrH7jM, converted with cwebp.",
-  "createdAt": "2026-11-07T22:53:59.800Z"
+  "prompt": "AI-generated illustration (Google Vertex AI, gemini-3-pro-image, 2026-11-09), not a photograph of FreshPods work; illustration only, never before/after proof. Generated from official Apple AirPods Max product photos and Hans real photos as references, with the rules and prompt for etape-nettoyage in refs-apple/PROMPTS-CHATGPT.md (kept out of the repo). Converted with ImageMagick.",
+  "createdAt": "2026-11-09T23:54:33Z"
 }

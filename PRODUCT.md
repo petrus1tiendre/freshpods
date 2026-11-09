@@ -42,7 +42,7 @@ Cleaning instead of replacing: a cushion-specific process that restores the orig
 ## Imagery
 
 - Real photos (proof): photos/pads-sales-*.jpg, photos/casque-propre.jpg; synthetic after: photos/clean.* (labeled).
-- AI-generated atmosphere images (Canva, 2026-11-07): photos/casque-aluminium.*, photos/etape-depose.*, photos/etape-nettoyage.*, photos/etape-sechage.*. Illustration only, never before/after proof; to be replaced by real shots of the workshop.
+- AI-generated step illustrations (Google Vertex AI gemini-3-pro-image, 2026-11-09, from official Apple photos + Hans real photos as references): photos/etape-depose.*, photos/etape-nettoyage.*, photos/etape-sechage.*. Illustration only, never before/after proof; to be replaced by real shots of the workshop. photos/casque-aluminium.* is an older Canva image, no longer used on the page.
 
 ## Brand commitments
 
